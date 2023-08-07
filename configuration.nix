@@ -29,10 +29,13 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.efiInstallAsRemovable = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.loader.efi.efiSysMountPoint = "/boot";
+  boot.loader.grub.useOSProber = true;
   boot.loader.grub.configurationLimit = 10;
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "nodev"; # or "nodev" for efi only
+ 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Garbage Collection
   nix.gc = {
