@@ -1,0 +1,32 @@
+#!/bin/bash
+
+DIR=/home/shadeyg56/Pictures/Wallpapers
+DEVICE=eDP-1
+i=1
+j=1
+
+
+for FILE in $DIR/*
+do
+ wallpapers[$j]=$FILE
+ options[$i]=$j
+ (( j++ ))
+ options[($i+1)]=${FILE#"$DIR/"}
+ ((i=($i+2)))
+done
+
+CHOICE=$(dialog --clear --backtitle "Backtitle here" --title "Wallpaper" --menu "Select a wallpaper:" 15 40 4 ${options[@]} 2>&1 >/dev/tty)
+
+WALLPAPER=${wallpapers[($CHOICE)]}
+
+hyprctl hyprpaper unload all
+hyprctl hyprpaper preload $WALLPAPER
+hyprctl hyprpaper wallpaper $DEVICE,$WALLPAPER
+
+dialog --clear --title "Wallpaper" --yesno "Do you want to make this your default wallpaper?" 7 60 2>&1 >/dev/tty
+CHOICE=$?
+
+if [[ $CHOICE -eq 0 ]]
+then
+    echo -e "preload = $WALLPAPER\n\nwallpaper = eDP-1,$WALLPAPER" > ~/.config/hypr/hyprpaper.conf
+fi

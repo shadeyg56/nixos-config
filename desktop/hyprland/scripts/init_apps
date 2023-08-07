@@ -1,0 +1,16 @@
+#!/bin/bash
+
+hyprctl dispatch exec '[workspace 1 silent] kitty -e yay'
+hyprctl dispatch exec '[workspace 1 silent] kitty'
+
+hyprctl dispatch exec '[workspace 2 silent] kitty -e cava'
+hyprctl dispatch exec '[workspace 2 silent ; tile] env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U'
+
+hyprctl keyword windowrule "workspace 3 silent,^(discord)$"
+hyprctl dispatch exec 'discord'
+hyprctl dispatch exec '[workspace 3 silent] snapchat-nativefier'
+
+hyprctl dispatch exec '[workspace 4 silent] kitty -e btop'
+
+sleep 30
+hyprctl keyword windowrule "workspace unset, ^(discord)$"
