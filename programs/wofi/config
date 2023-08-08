@@ -1,0 +1,6 @@
+show=drun
+width = 20%
+allow_images=true
+prompt=
+normal_window=true
+no_actions=true

@@ -7,16 +7,37 @@
     programs.home-manager.enable = true;
 
     home.packages = with pkgs; [
+      
+      # terminal
       neofetch
-      vscode
       kitty
       zsh
+      cava
+      btop
+      htop
+
+      # programs
+      vscode
+      discord
+      spotify
+      wofi
+      spicetify-cli
+      swaylock-effects
+      dolphin
+      brightnessctl
+      libsForQt5.polkit-kde-agent
+      bluez
+      blueman
+      pavucontrol
+      playerctl
+
     ];
 
     imports = [
 	    inputs.hyprland.homeManagerModules.default
 	    ./desktop
       ./terminal
+      ./programs
     ];
 }
 

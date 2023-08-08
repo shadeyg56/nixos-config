@@ -1,6 +1,6 @@
 { pkgs, lib, config, inputs, ... }:
 {
-  home.file.".config/hypr" ={
+  home.file.".config/hypr" = {
     source = ../hyprland;
     recursive = true;
   };
