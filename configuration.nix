@@ -15,7 +15,15 @@
     substituters = ["https://hyprland.cachix.org"];
     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
+
+  # allow proprietary packages
   nixpkgs.config.allowUnfree = true;
+  # enable the NUR (Nix's version of the AUR)
+  nixpkgs.config.packageOverrides = pkgs: {
+    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+      inherit pkgs;
+    };
+  };
 
   environment.systemPackages = with pkgs; [
 	  git
