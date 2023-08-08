@@ -1,7 +1,7 @@
 { pkgs, lib, config, inputs, ... }:
 {
   home.file.".config/hypr" ={
-    source = /etc/nixos/desktop/hyprland;
+    source = ../hyprland;
     recursive = true;
   };
 
