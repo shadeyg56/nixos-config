@@ -31,6 +31,9 @@
       pavucontrol
       playerctl
 
+      # themes
+      catppuccin-gtk
+
     ];
 
     imports = [
@@ -38,6 +41,7 @@
 	    ./desktop
       ./terminal
       ./programs
+      ./system
     ];
 }
 
