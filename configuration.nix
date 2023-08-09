@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      #/home/shadeyg56/nixos-config/pkgs/auto-cpufreq
     ];
   
   nix.settings.experimental-features = [ "nix-command" "flakes"];
@@ -31,13 +32,27 @@
 	  wget
 	  curl
     gnumake
+    nix-prefetch-github
+
+    # custom python packages
+    (callPackage ./pkgs/setuptools-git-versioning.nix {}) 
+    (callPackage ./pkgs/auto-cpufreq { })
+    
+  ];
+
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  fonts.fonts = with pkgs; [
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    font-awesome
   ];
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
-  boot.loader.grub.efiInstallAsRemovable = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
+  boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.configurationLimit = 10;
   # Define on which hard drive you want to install Grub.
@@ -77,7 +92,8 @@
      displayManager.sddm.enable = true;
   };
 
-
+#Enable policykit
+security.polkit.enable = true;
   
 
   # Configure keymap in X11
@@ -86,6 +102,9 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+
+  #Enable auto-cpufreq system wide
+  services.auto-cpufreq.enable = true;
 
   # Enable sound.
   sound.enable = true;
