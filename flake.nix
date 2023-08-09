@@ -22,7 +22,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
-    waybar-hyprland.url = "github:hyprwm/Hyprland";
+   # waybar-hyprland.url = "github:hyprwm/Hyprland";
   };
 
   # `outputs` are all the build result of the flake.
