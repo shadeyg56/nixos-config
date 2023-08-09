@@ -2,5 +2,5 @@
 {
     imports = [
         ./gtk.nix
-    ]
+    ];
 }
