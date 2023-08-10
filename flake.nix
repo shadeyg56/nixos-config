@@ -22,7 +22,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
-   # waybar-hyprland.url = "github:hyprwm/Hyprland";
+
+    sddm-sugar-candy-nix = {
+      url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   # `outputs` are all the build result of the flake.
@@ -35,7 +39,7 @@
   # 
   # The `@` syntax here is used to alias the attribute set of the
   # inputs's parameter, making it convenient to use inside the function.
-  outputs = { self, nixpkgs, home-manager, hyprland, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, hyprland, sddm-sugar-candy-nix, ... }@inputs: {
 
   #  homeConfigurations = {
  #       shadeyg56 = home-manager.lib.homeManagerConfiguration {
@@ -69,6 +73,7 @@
 		    home-manager.extraSpecialArgs = { inherit inputs; };
 		    home-manager.users.shadeyg56 = import ./home.nix;
 	    }
+      sddm-sugar-candy-nix.nixosModules.default
 	];
        };
 

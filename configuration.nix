@@ -60,6 +60,12 @@
  
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  #build and load custom drivers
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    (callPackage ./pkgs/acer-wmi-battery.nix {})
+  ];
+  boot.kernelModules = [ "acer-wmi-battery" ];
+
   # Garbage Collection
   nix.gc = {
     automatic = true;
@@ -89,7 +95,21 @@
   services.xserver = {
      enable = true;
      desktopManager.cinnamon.enable = true;
-     displayManager.sddm.enable = true;
+     displayManager.sddm = {
+      enable = true;
+      sugarCandyNix = {
+        enable = true;
+        settings = {
+          Background = ./desktop/wallpapers/nixos.png;
+          ScreenWidth = 1920;
+          ScreenHeight = 1080;
+          FormPosition = "left";
+          #Catppuccin Macchiato Lavender
+          AccentColor = "#b7bdf8";
+          Font = "JetBrainsMono Nerd Font";
+        };
+      };
+     };
   };
 
 #Enable policykit
@@ -140,6 +160,7 @@ security.polkit.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  programs.ssh.askPassword = "";
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

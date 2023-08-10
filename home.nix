@@ -15,6 +15,7 @@
       cava
       btop
       htop
+      dialog
 
       # programs
       vscode
@@ -30,6 +31,12 @@
       blueman
       pavucontrol
       playerctl
+      hyprpaper
+      swayidle
+      pamixer
+      libreoffice-fresh
+      okular
+      (callPackage ./pkgs/adios.nix { })
 
       # themes
       catppuccin-gtk
