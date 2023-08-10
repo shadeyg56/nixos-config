@@ -20,7 +20,6 @@
       # programs
       vscode
       discord
-      spotify
       wofi
       spicetify-cli
       swaylock-effects
@@ -37,6 +36,7 @@
       libreoffice-fresh
       okular
       (callPackage ./pkgs/adios.nix { })
+      (callPackage ./pkgs/spotify-adblock.nix { })
 
       # themes
       catppuccin-gtk
