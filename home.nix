@@ -40,8 +40,9 @@
       okular
       neovim
       (callPackage ./pkgs/adios.nix { })
-      #spotify
-      (callPackage ./pkgs/spotify-adblock.nix { })
+      
+      # use spicetify adblock instead
+      #(callPackage ./pkgs/spotify-adblock.nix { })
 
       # themes
       catppuccin-gtk
