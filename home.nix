@@ -16,6 +16,8 @@
       btop
       htop
       dialog
+      cbonsai
+      cmatrix
 
       # programs
       vscode
@@ -31,11 +33,14 @@
       pavucontrol
       playerctl
       hyprpaper
+      grim
       swayidle
       pamixer
       libreoffice-fresh
       okular
+      neovim
       (callPackage ./pkgs/adios.nix { })
+      #spotify
       (callPackage ./pkgs/spotify-adblock.nix { })
 
       # themes
