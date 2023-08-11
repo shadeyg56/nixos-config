@@ -48,15 +48,19 @@
     font-awesome
   ];
 
-  # Use the GRUB 2 boot loader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.efiSupport = true;
+  # EFI and Bootloader
+
   boot.loader.efi.efiSysMountPoint = "/boot";
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.useOSProber = true;
-  boot.loader.grub.configurationLimit = 10;
-  # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "nodev"; # or "nodev" for efi only
+
+  boot.loader.grub = {
+    enable = true;
+    efiSupport = true;
+    useOSProber = true;
+    configurationLimit = 10;
+    device = "nodev"; # efi only
+    theme = (pkgs.callPackage ./pkgs/catppuccin-grub.nix { });
+  };
  
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
