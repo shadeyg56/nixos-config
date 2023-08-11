@@ -10,7 +10,7 @@ in {
         enable = true;
         theme = spicePkgs.themes.catppuccin-macchiato;
         colorScheme = "lavender";
-        enabledExtenstions = with spicePkgs.extensions; [
+        enabledExtensions = with spicePkgs.extensions; [
             adblock
         ];
         #spotifyPackage = (pkgs.callPackage ../../pkgs/spotify-adblock.nix { });
