@@ -119,6 +119,13 @@
 
 #Enable policykit
 security.polkit.enable = true;
+
+#fix swaylock not accepting password
+security.pam.services.swaylock.text = ''
+  # PAM configuration file for the swaylock screen locker. By default, it includes
+  # the 'login' configuration file (see /etc/pam.d/login)
+  auth include login
+'';
   
 
   # Configure keymap in X11
@@ -149,8 +156,8 @@ security.polkit.enable = true;
   };
 
   programs.hyprland = {
-	enable = true;
-	#package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+	  enable = true;
+  	package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
