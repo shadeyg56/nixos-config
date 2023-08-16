@@ -27,12 +27,13 @@
   };
 
   environment.systemPackages = with pkgs; [
-	  git
-	  vim
-	  wget
-	  curl
+    git
+    vim
+    wget
+    curl
     gnumake
     nix-prefetch-github
+    virtiofsd
 
     # custom python packages
     (callPackage ./pkgs/setuptools-git-versioning.nix {}) 
@@ -148,12 +149,15 @@ security.pam.services.swaylock.text = ''
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.shadeyg56 = {
   	isNormalUser = true;
-  	extraGroups = [ "networkmanager" "wheel" ]; # Enable ‘sudo’ for the user.
+  	extraGroups = [ "networkmanager" "wheel" "libvirtd" "qemu-libvirtd" ]; # Enable ‘sudo’ for the user.
   	packages = with pkgs; [
   		firefox
   		tree
      	];
   };
+
+  virtualisation.libvirtd.enable = true;
+  virtualisation.podman.enable = true;
 
   programs.hyprland = {
 	  enable = true;

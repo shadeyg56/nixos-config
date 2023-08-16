@@ -39,7 +39,14 @@
       libreoffice-fresh
       okular
       neovim
+      virt-manager
+      filezilla
       (callPackage ./pkgs/adios.nix { })
+
+      # system
+      udev
+      podman
+      distrobox
       
       # use spicetify adblock instead
       #(callPackage ./pkgs/spotify-adblock.nix { })
