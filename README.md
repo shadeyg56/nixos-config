@@ -1,7 +1,48 @@
-# nixos-config
+# :snowflake: nixos-config
+
 My dotfiles for nixos
 
-# WARNING
-This flake is very much in WIP. I'm mostly tinkering for now. 
+<a href="https://github.com/nixos/nixpkgs"><img src="https://img.shields.io/badge/NixOS-unstable-informational.svg?style=flat&logo=nixos&logoColor=CAD3F5&colorA=24273A&colorB=8AADF4"></a>  <img alt="Static Badge" src="https://img.shields.io/badge/hyprland-flake-dodgerblue?logo=wayland&logoColor=dodgerblue&link=https%3A%2F%2Fhyprland.org%2F">
 
-**It is not in a usable state for daily use**
+
+<img src=https://camo.githubusercontent.com/8c73ac68e6db84a5c58eef328946ba571a92829b3baaa155b7ca5b3521388cc9/68747470733a2f2f692e696d6775722e636f6d2f367146436c41312e706e67 alt=nixos-logo width=400/>
+
+
+## Why NixOS?
+Gone are the days of having to reconfigure your Arch install because your last one broke.
+
+NixOS is a declarative operating system that allows you to create perfectly reproducible systems that can be installed in just a single command
+
+### Pros
+- Easily revert to previous configurations through bootloader
+- Reproducable system
+- Central location for system and user configuration
+- nixpkgs is a massive package repo
+
+### Cons
+- High learning curve
+- The read-only system can be hard to adjust to
+
+Basically Nix can take a while to learn and setup, but once you figure it out you never have to waste time configuring one of your systems again
+
+
+## Features
+* window manager - [hyprland](https://hyprland.org/)
+* bar - [waybar](https://github.com/Alexays/Waybar)
+* theme - [catppuccin](https://github.com/catppuccin/catppuccin) macchiato for basically everything
+* terminal - [kitty](https://github.com/kovidgoyal/kitty)
+* shell - [zsh](https://www.zsh.org/) with [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+* file manager - [dolphin](https://github.com/KDE/dolphin)
+
+Looking for something else? Use the GitHub search function or browse the files split into categories
+
+## Installation
+1. Download the [NixOS ISO file](https://nixos.org/download.html#nixos-iso)
+2. Flash the ISO to a USB and install NixOS until you get to `nixos-install`
+
+    A install guide can be found [here](https://nixos.org/manual/nixos/stable/#ch-installation)
+3. Clone this repo
+4. Replace `hardware-configuration.nix` with the one you generated **(If you skip this step, your system will not boot)**
+5. Edit `configuration.nix` if you want to change your username or other settings
+6. Run `nixos-install --flake .#nixos`
+7. Reboot and enjoy!
