@@ -5,6 +5,7 @@
     ./kitty
     ./btop
     ./cava
+    ./direnv.nix
   ];
 
 }

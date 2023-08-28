@@ -3,11 +3,11 @@
   "margin-top": 6,
   "margin-right": 6,
   "spacing": 6,
-  "modules-left": ["wlr/workspaces", "hyprland/window"],
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": ["clock"],
   "modules-right": ["custom/spotify", "pulseaudio", "backlight", "battery", "network", "bluetooth", "tray", "custom/power"],
-  "wlr/workspaces": {
-    "format": "{icon}",
+  "hyprland/workspaces": {
+    "format": "{name}",
     "on-click": "activate"
   },
   "hyprland/window": {

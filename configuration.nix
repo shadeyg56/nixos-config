@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ inputs, config, pkgs, ... }:
+{ inputs, config, pkgs, lib, ... }:
 
 {
   imports =
@@ -41,8 +41,9 @@
     
   ];
 
-
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.variables.QT_STYLE_OVERRIDE = lib.mkForce "";
+  environment.variables.QT_QPA_PLATFORMTHEME = lib.mkForce "qt5ct";
 
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
@@ -135,13 +136,23 @@ security.pam.services.swaylock.text = ''
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.printing.drivers = [ pkgs.hplip ];
 
   #Enable auto-cpufreq system wide
   services.auto-cpufreq.enable = true;
 
+  
+
   # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.enable = false;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  hardware.opengl.driSupport32Bit = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;

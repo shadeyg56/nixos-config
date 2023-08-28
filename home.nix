@@ -18,6 +18,8 @@
       dialog
       cbonsai
       cmatrix
+      direnv
+      nix-direnv
 
       # programs
       vscode
@@ -41,17 +43,29 @@
       neovim
       virt-manager
       filezilla
+      grapejuice
+      minecraft
+      prismlauncher
+      moonlight-qt
       (callPackage ./pkgs/adios.nix { })
 
       # system
       udev
       podman
       distrobox
-      
+      pipewire
+      glibc
+      gcc
+      python312
+      winetricks
+      wineWowPackages.waylandFull
+      jdk17
       # use spicetify adblock instead
       #(callPackage ./pkgs/spotify-adblock.nix { })
 
       # themes
+      lightly-qt
+      libsForQt5.qt5ct
       catppuccin-gtk
 
     ];

@@ -42,6 +42,7 @@
         specialArgs = { inherit inputs; };
         modules = [
 	        ./configuration.nix
+          ./modules/power-switcher.nix
 	        hyprland.nixosModules.default
 	        home-manager.nixosModules.home-manager {
 		        home-manager.useGlobalPkgs = true;
