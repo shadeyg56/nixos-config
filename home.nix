@@ -43,7 +43,8 @@
       neovim
       virt-manager
       filezilla
-      grapejuice
+      #grapejuice
+      (callPackage ./pkgs/grapejuice.nix { })
       minecraft
       prismlauncher
       moonlight-qt
