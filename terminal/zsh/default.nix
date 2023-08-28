@@ -2,7 +2,7 @@
 {
     programs.zsh = {
         enable = true;
-        enableSyntaxHighlighting = true;
+        syntaxHighlighting.enable = true;
         plugins = [
             {
                 name = "powerlevel10k";

@@ -45,7 +45,7 @@
   environment.variables.QT_STYLE_OVERRIDE = lib.mkForce "";
   environment.variables.QT_QPA_PLATFORMTHEME = lib.mkForce "qt5ct";
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     font-awesome
   ];
