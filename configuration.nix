@@ -70,7 +70,11 @@
   boot.extraModulePackages = with config.boot.kernelPackages; [
     (callPackage ./pkgs/acer-wmi-battery.nix {})
   ];
-  boot.kernelModules = [ "acer-wmi-battery" ];
+  boot.kernelModules = [ "acer-wmi-battery" "amd-pstate" ];
+  boot.kernelParams = [
+    "initcall_blacklist=acpi_cpufreq_init"
+    "amd_pstate.shared_mem=1"
+  ];
 
   # Garbage Collection
   nix.gc = {
