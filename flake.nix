@@ -29,8 +29,13 @@
       url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    auto-cpufreq = {
+      url = "github:shadeyg56/auto-cpufreq/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = { self, nixpkgs, home-manager, hyprland, sddm-sugar-candy-nix, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, hyprland, sddm-sugar-candy-nix, auto-cpufreq, ... }@inputs: 
   let 
     system = "x86_64-linux";
 
@@ -51,6 +56,7 @@
 		        home-manager.users.shadeyg56 = import ./home.nix;
 	        }
           sddm-sugar-candy-nix.nixosModules.default
+          auto-cpufreq.nixosModules.default
 	      ];
        };
     };

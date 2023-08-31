@@ -3,7 +3,9 @@
 # and in the NixOS manual (accessible by running `nixos-help`).
 
 { inputs, config, pkgs, lib, ... }:
-
+let
+  auto-cpufreq = pkgs.callPackage ./pkgs/auto-cpufreq { };
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -37,7 +39,6 @@
 
     # custom python packages
     (callPackage ./pkgs/setuptools-git-versioning.nix {}) 
-    (callPackage ./pkgs/auto-cpufreq { })
     
   ];
 
@@ -143,7 +144,12 @@ security.pam.services.swaylock.text = ''
   services.printing.drivers = [ pkgs.hplip ];
 
   #Enable auto-cpufreq system wide
-  services.auto-cpufreq.enable = true;
+  # services.auto-cpufreq.enable = true;
+  # systemd.services.auto-cpufreq = {
+  #   overrideStrategy = "asDropin";
+  #   serviceConfig.ExecStart = lib.mkForce [ "" "${auto-cpufreq}/bin/auto-cpufreq --daemon"
+  # ]; 
+  # };
 
   
 
@@ -178,6 +184,8 @@ security.pam.services.swaylock.text = ''
 	  enable = true;
   	package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
+
+  programs.auto-cpufreq.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

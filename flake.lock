@@ -1,5 +1,26 @@
 {
   "nodes": {
+    "auto-cpufreq": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1693514886,
+        "narHash": "sha256-FkTHW3pm6NaMypZPBl82D8JcLJQJ6XEYf7KyiZKpVec=",
+        "owner": "shadeyg56",
+        "repo": "auto-cpufreq",
+        "rev": "7aa28c88b709aef22fbe85dea606492b6a755810",
+        "type": "github"
+      },
+      "original": {
+        "owner": "shadeyg56",
+        "ref": "nix",
+        "repo": "auto-cpufreq",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems_2"
@@ -136,6 +157,7 @@
     },
     "root": {
       "inputs": {
+        "auto-cpufreq": "auto-cpufreq",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "nixpkgs": "nixpkgs_2",
