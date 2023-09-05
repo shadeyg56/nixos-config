@@ -47,6 +47,7 @@
       minecraft
       prismlauncher
       moonlight-qt
+      steam
       (callPackage ./pkgs/adios.nix { })
 
       # system
@@ -60,6 +61,7 @@
       winetricks
       wineWowPackages.waylandFull
       jdk17
+      nixd
       # use spicetify adblock instead
       #(callPackage ./pkgs/spotify-adblock.nix { })
 
