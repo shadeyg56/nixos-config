@@ -10,7 +10,6 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      #/home/shadeyg56/nixos-config/pkgs/auto-cpufreq
     ];
   
   nix.settings.experimental-features = [ "nix-command" "flakes"];
