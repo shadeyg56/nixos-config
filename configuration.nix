@@ -185,6 +185,17 @@ security.pam.services.swaylock.text = ''
   };
 
   programs.auto-cpufreq.enable = true;
+  programs.auto-cpufreq.settings = {
+    charger = {
+      governor = "performance";
+      turbo = "auto";
+    };
+
+    battery = {
+      governor = "powersave";
+      turbo = "auto";
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
