@@ -14,6 +14,10 @@
             name = "Papirus-Dark";
             package = pkgs.papirus-icon-theme;
         };
+        font = {
+            name = "Noto Sans";
+            size = 10;
+        };
     };
 
     home.sessionVariables.GTK_THEME = "Catppuccin-Macchiato-Standard-Lavender-dark";

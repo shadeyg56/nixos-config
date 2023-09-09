@@ -48,6 +48,7 @@ in
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     font-awesome
+    noto-fonts
   ];
 
   # EFI and Bootloader
