@@ -23,7 +23,9 @@
 
       # programs
       vscode
-      discord
+      (discord.override {
+	withVencord = true;
+      })
       wofi
       spicetify-cli
       swaylock-effects
