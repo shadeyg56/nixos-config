@@ -19,7 +19,7 @@
   },
   "pulseaudio": {
     "format": " {volume}%",
-    "format-muted": "婢 Muted",
+    "format-muted": " Muted",
     "on-click": "pavucontrol"
   },
   "bluetooth": {
