@@ -35,9 +35,7 @@ in
     gnumake
     nix-prefetch-github
     virtiofsd
-
-    # custom python packages
-    (callPackage ./pkgs/setuptools-git-versioning.nix {}) 
+    cachix
     
   ];
 
