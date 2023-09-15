@@ -1,0 +1,19 @@
+name: build-nix
+
+on: 
+  pull_request:
+  push:
+
+jobs:
+  build-nixos:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v4
+      
+      - name: "Install Nix ❄️"
+        uses: cachix/install-nix-action@v23
+        
+      - name: "Build NixOS config ❄️"
+        run: |
+          nix build .\#nixosConfigurations.nixos.config.system.build.toplevel 
+        
