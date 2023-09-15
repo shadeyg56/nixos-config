@@ -1,8 +1,11 @@
-name: build-nix
+name: Nix Build
 
 on: 
   pull_request:
   push:
+  workflow_run:
+    workflows: [update-flake]
+    types: [completed]
 
 jobs:
   build-nixos:
