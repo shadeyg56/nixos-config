@@ -50,6 +50,7 @@
       prismlauncher
       moonlight-qt
       steam
+      ungoogled-chromium
       (callPackage ./pkgs/adios.nix { })
 
       # system
