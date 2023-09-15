@@ -10,12 +10,13 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./cachix.nix
     ];
   
   nix.settings.experimental-features = [ "nix-command" "flakes"];
   nix.settings = {
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+    substituters = ["https://hyprland.cachix.org" "https://shades-nixos-config.cachix.org" "https://cache.nixos.org"];
+    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" "shades-nixos-config.cachix.org-1:MOIJALAf3hYttmgh8QA6NAN6kwXFLg0THonAkGsfbGs="];
   };
 
   # allow proprietary packages
