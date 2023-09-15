@@ -20,10 +20,9 @@ jobs:
           nix flake update
 
       - name: "Commit and push"
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add flake.lock
-          git commit -m "chore: update flake.lock"
-          git push
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: "flake.lock"
+          default_author: github_actions
+          message: "chore: update flake.lock"
         
