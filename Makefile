@@ -20,6 +20,7 @@ history:
 
 keep:
 	sudo nix-env --delete-generations +${KEEP} --profile /nix/var/nix/profiles/system
+	sudo nix-env --delete-generations +${KEEP} --profile ~/.local/state/nix/profiles/home-manager
 
 gc:
 	# remove all generations older than 7 days
