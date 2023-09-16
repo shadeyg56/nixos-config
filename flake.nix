@@ -37,14 +37,14 @@
       "nixos" = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
-	        ./configuration.nix
+	        ./hosts/laptop/configuration.nix
           ./modules/power-switcher.nix
 	        hyprland.nixosModules.default
 	        home-manager.nixosModules.home-manager {
 		        home-manager.useGlobalPkgs = true;
 		        home-manager.useUserPackages = true;
 		        home-manager.extraSpecialArgs = { inherit inputs; };
-		        home-manager.users.shadeyg56 = import ./home.nix;
+		        home-manager.users.shadeyg56 = import ./home/home.nix;
 	        }
           sddm-sugar-candy-nix.nixosModules.default
           auto-cpufreq.nixosModules.default

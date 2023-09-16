@@ -1,7 +1,4 @@
 { inputs, config, pkgs, lib, ... }:
-let
-  auto-cpufreq = pkgs.callPackage ./pkgs/auto-cpufreq { };
-in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -50,14 +47,14 @@ in
     useOSProber = true;
     configurationLimit = 10;
     device = "nodev"; # efi only
-    theme = (pkgs.callPackage ./pkgs/catppuccin-grub.nix { });
+    theme = (pkgs.callPackage ../../pkgs/catppuccin-grub.nix { });
   };
  
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   #build and load custom drivers
   boot.extraModulePackages = with config.boot.kernelPackages; [
-    (callPackage ./pkgs/acer-wmi-battery.nix {})
+    (callPackage ../../pkgs/acer-wmi-battery.nix {})
   ];
   boot.kernelModules = [ "acer-wmi-battery" "amd-pstate" ];
   boot.kernelParams = [

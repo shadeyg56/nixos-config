@@ -51,7 +51,7 @@
       moonlight-qt
       steam
       ungoogled-chromium
-      (callPackage ./pkgs/adios.nix { })
+      (callPackage ../pkgs/adios.nix { })
 
       # system
       udev
