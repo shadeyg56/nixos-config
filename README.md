@@ -45,3 +45,8 @@ Looking for something else? Use the GitHub search function or browse the files s
 5. Edit `configuration.nix` if you want to change your username or other settings
 6. Run `nixos-install --flake .#nixos`
 7. Reboot and enjoy!
+
+## Cachix
+Builds are made after every commit using a GitHub action and uploaded to [Cachix](https://www.cachix.org/). 
+
+When building the config, Nix will check to see if the derivations are in the cache and will just copy them instead of rebuilding. This saves significant time when building or updating on a system
