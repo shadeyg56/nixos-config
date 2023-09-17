@@ -5,6 +5,7 @@
     ./kitty
     ./btop
     ./cava
+    ./neofetch
     ./direnv.nix
   ];
 
