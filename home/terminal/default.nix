@@ -6,6 +6,7 @@
     ./btop
     ./cava
     ./neofetch
+    ./nvim
     ./direnv.nix
   ];
 

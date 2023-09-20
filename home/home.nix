@@ -42,7 +42,6 @@
       pamixer
       libreoffice-fresh
       okular
-      neovim
       virt-manager
       filezilla
       grapejuice
