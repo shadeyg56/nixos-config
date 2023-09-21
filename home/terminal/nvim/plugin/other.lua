@@ -5,3 +5,6 @@ require("lualine").setup({
 
 -- Comment
 require("Comment").setup()
+
+require("barbar").setup()
+require("gitsigns").setup()

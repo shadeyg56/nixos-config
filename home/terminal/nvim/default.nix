@@ -57,6 +57,9 @@
         config = toLuaFile ./plugin/nvim-tree.lua;
       }
 
+      barbar-nvim
+      gitsigns-nvim
+
       telescope-fzf-native-nvim
 
       cmp_luasnip
