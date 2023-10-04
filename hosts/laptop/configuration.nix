@@ -134,6 +134,7 @@ security.pam.services.swaylock.text = ''
   users.users.shadeyg56 = {
   	isNormalUser = true;
   	extraGroups = [ "networkmanager" "wheel" "libvirtd" "qemu-libvirtd" ];
+    shell = pkgs.zsh;
   	packages = with pkgs; [
   		firefox
   		tree
@@ -147,6 +148,8 @@ security.pam.services.swaylock.text = ''
 	  enable = true;
   	package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
+
+  programs.zsh.enable = true;
 
   programs.auto-cpufreq.enable = true;
   programs.auto-cpufreq.settings = {

@@ -20,6 +20,7 @@
       cmatrix
       direnv
       nix-direnv
+      wl-clipboard
 
       # programs
       vscode
