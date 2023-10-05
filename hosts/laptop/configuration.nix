@@ -85,7 +85,7 @@
       sugarCandyNix = {
         enable = true;
         settings = {
-          Background = ./desktop/wallpapers/nixos.png;
+          Background = lib.cleanSource ../../home/desktop/wallpapers/nixos-catppuccin.png;
           ScreenWidth = 1920;
           ScreenHeight = 1080;
           FormPosition = "left";
