@@ -21,6 +21,8 @@
       direnv
       nix-direnv
       wl-clipboard
+      hugo
+      gh
 
       # programs
       vscode
