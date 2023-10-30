@@ -12,8 +12,8 @@ in {
 
     programs.spicetify = {
         enable = true;
-        theme = spicePkgs.themes.catppuccin-macchiato;
-        colorScheme = "lavender";
+        theme = spicePkgs.themes.catppuccin;
+        colorScheme = "macchiato";
         enabledExtensions = with spicePkgs.extensions; [
             adblock
             shuffle
