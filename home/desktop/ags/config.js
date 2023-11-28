@@ -2,11 +2,13 @@
 
 import App from 'resource:///com/github/Aylur/ags/app.js';
 import Bar from './js/bar/bar.js'
+import ControlCenter from './js/ControlCenter/ControlCenter.js';
 
 let config = {
     style: App.configDir + '/style.css',
     windows: [
-        Bar(0)
+        Bar(0),
+        ControlCenter(),
     ],
 };
 
