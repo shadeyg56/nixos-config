@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "ags": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1701118938,
+        "narHash": "sha256-WX4mBKfA+tgJ6KDV0GegEZ0bH5tlyXs+55xZqX4pHJI=",
+        "owner": "Aylur",
+        "repo": "ags",
+        "rev": "3e5daa0bcc654d3afa3a910faba59ac538a1eca2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Aylur",
+        "repo": "ags",
+        "type": "github"
+      }
+    },
     "auto-cpufreq": {
       "inputs": {
         "nixpkgs": [
@@ -172,6 +192,7 @@
     },
     "root": {
       "inputs": {
+        "ags": "ags",
         "auto-cpufreq": "auto-cpufreq",
         "home-manager": "home-manager",
         "hyprland": "hyprland",

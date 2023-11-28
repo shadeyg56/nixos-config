@@ -1,10 +1,16 @@
 import Widget from 'resource:///com/github/Aylur/ags/widget.js';
 import Clock from './modules/clock.js';
 import Workspaces from './modules/workspaces.js';
+import Battery from './modules/battery.js';
+import NetworkIndicator from './modules/network.js';
+import Volume from './modules/volume.js';
+import focusedTitle from './modules/focusedWindow.js';
+import powerButton from './modules/powerButton.js';
 
 const Left = () => Widget.Box({
     children: [
         Workspaces(),
+        focusedTitle(),
     ]
 })
 
@@ -15,7 +21,18 @@ const Center = () => Widget.Box({
 })
 
 const Right = () => Widget.Box({
-
+    children: [
+        Widget.Box({
+            className: 'rightBox',
+            children: [
+                Volume(),
+                Battery(),
+                NetworkIndicator(),
+                powerButton(),
+            ]
+        })
+    ],
+    hpack: 'end',
 })
 
 const Bar = (monitor = 0) => Widget.Window({

@@ -9,10 +9,19 @@ label {
 }
 
 .bar {
-    background-color: rgba(44, 44, 44, 0.5);
+    background-color: rgba(44, 44, 44, 0.8);
     border-radius: 24px;
     min-height: 32px;
   }
+
+.rightBox {
+    background-color: rgba(33, 33, 33, 0.5);
+    color: #ffffff;
+    margin: 6px;
+    padding: 0 12px;
+    border-radius: 24px;
+    font-weight: bolder;
+}
 
 .clock {
     background-color: rgba(33, 33, 33, 0.5);
@@ -22,6 +31,51 @@ label {
     border-radius: 24px;
     font-weight: bolder;
   }
+
+.focusedTitle {
+    background-color: rgba(33, 33, 33, 0.5);
+    color: #F06292;;
+    margin: 6px;
+    padding: 0 12px;
+    border-radius: 24px;
+    font-weight: bolder;
+    font-size: 10pt;
+}
+
+.powerButton {
+    font-size: 14pt;
+    margin: 5px 5px;
+}
+
+.batIcon {
+    font-size: 14pt;
+    margin: 5px 5px;
+}
+
+.volIcon {
+    margin: 5px 5px;
+    font-size: 14pt;
+}
+
+.netIcon {
+    margin: 5px 5px;
+    font-size: 14pt;
+}
+
+.volBar {
+    min-width: 60px;;
+}
+
+.volBar trough highlight {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    min-height: 6px;
+}
+
+.volBar trough {
+    background-color: #212121;
+    border-radius: 1rem;
+}
 
 
 .workspaces {
