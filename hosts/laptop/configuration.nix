@@ -34,7 +34,7 @@
     (nerdfonts.override { fonts = [ "JetBrainsMono" "Ubuntu" "UbuntuMono"]; })
     font-awesome
     noto-fonts
-
+    material-design-icons
   ];
 
   # EFI and Bootloader
