@@ -8,6 +8,7 @@
   imports = [
     ./hyprland
     ./waybar
+    ./ags
   ];
 
 }
