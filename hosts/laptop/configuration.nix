@@ -31,9 +31,10 @@
   environment.variables.QT_QPA_PLATFORMTHEME = lib.mkForce "qt5ct";
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    (nerdfonts.override { fonts = [ "JetBrainsMono" "Ubuntu" "UbuntuMono"]; })
     font-awesome
     noto-fonts
+
   ];
 
   # EFI and Bootloader
