@@ -9,6 +9,9 @@ KEEP?=10
 deploy:
 	nixos-rebuild switch --flake . --use-remote-sudo
 
+test:
+	nixos-rebuild test --flake . --use-remote-sudo
+
 debug:
 	nixos-rebuild switch --flake . --use-remote-sudo --show-trace --verbose
 
