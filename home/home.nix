@@ -79,6 +79,7 @@
 
     imports = [
 	    inputs.hyprland.homeManagerModules.default
+      inputs.ags.homeManagerModules.default
 	    ./desktop
       ./terminal
       ./programs
