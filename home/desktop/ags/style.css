@@ -34,12 +34,15 @@ label {
 
 .focusedTitle {
     background-color: rgba(33, 33, 33, 0.5);
-    color: #F06292;;
+    color: #F06292;
     margin: 6px;
     padding: 0 12px;
     border-radius: 24px;
+}
+
+.focusedTitle label {
+    font-size: 14px;
     font-weight: bolder;
-    font-size: 8pt;
 }
 
 .powerButton {
@@ -147,6 +150,26 @@ label {
     border-radius: 12px;
     font-weight: bolder;
 }
+
+.sliders-box {
+    background-color: rgba(33, 33, 33, 1);
+    padding: 3px 3px;
+    margin: 6px;
+	border-radius: 12px;
+}
+
+.sliders-box trough {
+    background-color: rgb(68, 66, 66);
+    border-radius: 6px;
+    min-height: 15px;
+}
+
+.sliders-box trough highlight {
+    background-color: #F06292;
+    border-radius: 6px;
+    min-height: 15px;
+}
+
 
 .battery-progress {
     color: #000000;

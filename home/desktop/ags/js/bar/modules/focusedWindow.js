@@ -8,6 +8,8 @@ const focusedTitle = () => Widget.Box({
     ],
     children: [
         Widget.Label({
+            maxWidthChars: 40,
+            truncate: 'middle',
             binds: [
                 ['label', Hyprland.active.client, 'title'],
             ],

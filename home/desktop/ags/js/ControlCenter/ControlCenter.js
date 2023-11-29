@@ -3,6 +3,7 @@ import App from 'resource:///com/github/Aylur/ags/app.js';
 import Header from './modules/header.js';
 import { NetworkToggle, WifiSelection } from './modules/network.js';
 import { BluetoothToggle, BluetoothDevices } from './modules/bluetooth.js';
+import Brightness from './modules/brightness.js';
 
 const Row = (toggles = [], menus = []) => Widget.Box({
     vertical: true,
@@ -24,7 +25,14 @@ const Homogeneous = toggles => Widget.Box({
 const ControlCenter = () => Widget.Box({
     className: 'controlcenter',
     vertical: true,
-    children: [Header(),          
+    children: [Header(),
+        Widget.Box({
+            className: "sliders-box",
+            vertical: true,
+            children: [
+                Brightness(),
+            ],
+        }),      
         Row([Homogeneous([NetworkToggle(), BluetoothToggle()])],
         [WifiSelection(), BluetoothDevices()]),
     ],
