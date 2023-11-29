@@ -54,7 +54,14 @@ const percentBar = PercentBar();
 const Volume = () => EventBox({
   className: 'volume',
   onHover: () => percentBar.revealChild = true,
-  onHoverLost: () => percentBar.revealChild = false,
+  onHoverLost: (widget, event) => {
+    const [_, x, y] = event.get_coords()
+    const w = widget.get_allocation().width;
+    const h = widget.get_allocation().height;
+    if (x < 0 || x > w || y < 0 || y > h) {
+      percentBar.revealChild = false
+    }
+  },
   //connections: [[Audio, box => {box.set_tooltip_text(`${String(Math.floor(Audio.speaker.volume * 100))}%`)}, 'speaker-changed']],
   child: Box({
     children: [

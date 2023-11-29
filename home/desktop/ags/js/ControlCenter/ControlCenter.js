@@ -1,17 +1,43 @@
 import Widget from 'resource:///com/github/Aylur/ags/widget.js';
 import App from 'resource:///com/github/Aylur/ags/app.js';
-import Clock from '../bar/modules/clock.js';
+import Header from './modules/header.js';
+import { NetworkToggle, WifiSelection } from './modules/network.js';
+import { BluetoothToggle, BluetoothDevices } from './modules/bluetooth.js';
 
-const controlCenter = () => Widget.Revealer({
+const Row = (toggles = [], menus = []) => Widget.Box({
+    vertical: true,
+    children: [
+        Widget.Box({
+            class_name: 'row horizontal',
+            children: toggles,
+        }),
+        ...menus,
+    ],
+});
+
+const Homogeneous = toggles => Widget.Box({
+    homogeneous: true,
+    children: toggles,
+    vertical: true,
+});
+
+const ControlCenter = () => Widget.Box({
+    className: 'controlcenter',
+    vertical: true,
+    children: [Header(),          
+        Row([Homogeneous([NetworkToggle(), BluetoothToggle()])],
+        [WifiSelection(), BluetoothDevices()]),
+    ],
+});
+
+const revealer = () => Widget.Revealer({
     transition: 'slide_down',
-    revealChild: false,
     connections: [[App, (self, wname, visible) => {
         if (wname === 'controlcenter')
-            self.revealChild = visible;
-    }]],
-    child: Widget.Box({
-        children: [Clock()],
-    })
+            self.revealChild = visible
+        }, 'window-toggled']
+    ],
+    child: ControlCenter(),
 });
 
 export default () => Widget.Window({
@@ -19,5 +45,9 @@ export default () => Widget.Window({
     popup: true,
     focusable: true,
     anchor: ["top", "right"],
-    child: controlCenter(),
+    visible: false,
+    child: Widget.Box({
+        css: 'padding: 1px;',
+        child: revealer(),
+    }),
 })

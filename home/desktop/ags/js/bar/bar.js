@@ -6,6 +6,7 @@ import NetworkIndicator from './modules/network.js';
 import Volume from './modules/volume.js';
 import focusedTitle from './modules/focusedWindow.js';
 import powerButton from './modules/powerButton.js';
+import controlCenterButton from './modules/controlCenterButton.js';
 
 const Left = () => Widget.Box({
     children: [
@@ -22,6 +23,7 @@ const Center = () => Widget.Box({
 
 const Right = () => Widget.Box({
     children: [
+        controlCenterButton(),
         Widget.Box({
             className: 'rightBox',
             children: [

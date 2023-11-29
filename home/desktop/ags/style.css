@@ -39,12 +39,21 @@ label {
     padding: 0 12px;
     border-radius: 24px;
     font-weight: bolder;
-    font-size: 10pt;
+    font-size: 8pt;
 }
 
 .powerButton {
     font-size: 14pt;
     margin: 5px 5px;
+}
+
+.controlCenterButton {
+    font-size: 20pt;
+    margin: 3px 3px;
+}
+
+.controlCenterButton image {
+    transition: -gtk-icon-transform 0.25s ease-in;
 }
 
 .batIcon {
@@ -53,7 +62,7 @@ label {
 }
 
 .volIcon {
-    margin: 5px 5px;
+    margin: 5px 2px 0px 5px;
     font-size: 14pt;
 }
 
@@ -63,7 +72,7 @@ label {
 }
 
 .volBar {
-    min-width: 60px;;
+    min-width: 60px;
 }
 
 .volBar trough highlight {
@@ -87,22 +96,92 @@ label {
     font-weight: bolder;
   }
   
-  .workspaces button {
+.workspaces button {
     padding: 1px 0.6rem;
     border-radius: 24px;
     transition: color 0.25s ease-in;
-  }
-  
-  .workspaces button:hover {
+}
+
+.workspaces button:hover {
     color: #F06292;
-  }
-  
-  /*.workspaces button:active,*/
-  
-  .workspaces button.focused {
+}
+
+/*.workspaces button:active,*/
+
+.workspaces button.focused {
     color: #212121;
     background-color: #F06292;
     margin: 0.5rem 0;
     padding: 1px 0.8rem ;
     border-radius: 24px;
-  }
+}
+
+.controlcenter {
+    color: #ffffff;
+    background-color: rgba(44, 44, 44, 0.8);
+    border-radius: 12px;
+    font-weight: bolder;
+}
+
+.controlcenter button{
+    padding: 6px 6px;
+    margin: 5px 5px;
+    border-radius: 6px;
+    background-color: rgb(68, 66, 66);
+    font-size: 16pt;
+}
+
+.controlcenter label{
+    padding: 6px 6px;
+    margin: 5px 5px;
+    border-radius: 6px;
+    background-color: rgb(68, 66, 66);
+    font-size: 12pt;
+}
+
+.system-box {
+    background-color: rgba(33, 33, 33, 1);
+    color: #ffffff;
+    margin: 6px;
+    padding: 6px 6px;
+    border-radius: 12px;
+    font-weight: bolder;
+}
+
+.battery-progress {
+    color: #000000;
+    padding: 3px 3px;
+    margin: 5px 5px;
+}
+
+.battery-progress label {
+    background-color: unset;
+    margin: unset;
+}
+
+.battery-progress trough {
+    background-color: rgb(68, 66, 66);
+    border-radius: 6px;
+    min-height: 25px;
+
+
+}
+
+.battery-progress trough progress {
+    background-color: #F06292;
+    border-radius: 6px;
+    min-height: 25px;
+}
+
+.toggle-button button{
+	background-color: rgb(33, 33 ,33);
+}
+
+.toggle-button label{
+	background-color: rgb(33, 33 ,33)
+}
+
+.toggle-button.active button, .toggle-button.active label, .toggle-button.active image{
+	background-color: #F06292;
+    color: #000000;
+}

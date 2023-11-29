@@ -53,6 +53,7 @@
       moonlight-qt
       steam
       ungoogled-chromium
+      icon-library
       (callPackage ../pkgs/adios.nix { })
 
       # system
