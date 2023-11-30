@@ -48,6 +48,7 @@ label {
 .powerButton {
     font-size: 14pt;
     margin: 5px 5px;
+    color: rgb(242, 143, 173)
 }
 
 .controlCenterButton {
@@ -207,4 +208,44 @@ label {
 .toggle-button.active button, .toggle-button.active label, .toggle-button.active image{
 	background-color: #F06292;
     color: #000000;
+}
+
+.media-box {
+	background-color: rgba(33, 33, 33, 1);
+	min-width: 300px;
+	min-height: 400px;
+	border-radius: 25px;
+
+}
+
+.player-icon {
+    font-size: 16px;
+}
+
+.track-info {
+	padding: 0 30px;
+}
+
+.track-name {
+	margin: 2px 0;
+}
+
+.cover-art {
+	background-size: cover;
+	min-width: 250px;
+	min-height: 250px;
+	margin: 30px 30px 7px;
+	border-radius: 12px;
+}
+
+.track-info label{
+	font-size: 14px;
+}
+
+.track-name{
+	font-weight: bold;
+}
+
+.artist-name{
+	font-weight: lighter;
 }

@@ -7,6 +7,7 @@ import Volume from './modules/volume.js';
 import focusedTitle from './modules/focusedWindow.js';
 import powerButton from './modules/powerButton.js';
 import controlCenterButton from './modules/controlCenterButton.js';
+import MediaBox from './modules/media.js';
 
 const Left = () => Widget.Box({
     children: [
@@ -18,6 +19,7 @@ const Left = () => Widget.Box({
 const Center = () => Widget.Box({
     children: [
         Clock(),
+        MediaBox(),
     ]
 })
 

@@ -98,6 +98,8 @@
      };
   };
 
+  services.gvfs.enable = true;
+
 #Enable policykit
 security.polkit.enable = true;
 
