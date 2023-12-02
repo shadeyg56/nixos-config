@@ -159,6 +159,10 @@ label {
 	border-radius: 12px;
 }
 
+.sliders-box button {
+    background-color: rgb(33, 33, 33);
+}
+
 .sliders-box trough {
     background-color: rgb(68, 66, 66);
     border-radius: 6px;

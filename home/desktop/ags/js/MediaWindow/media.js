@@ -90,16 +90,16 @@ const PlayButton = (player) => Widget.Button({
 
 const NextButton = (player) => Widget.Button({
     class_name: 'next-button',
-        visible: player.can_go_next,
     onClicked: () => player.next(),
     child: Widget.Icon('media-skip-backward-rtl-symbolic'),
+    binds: [['visible', player, 'can-go-next']]
 });
 
 const PreviousButton = (player) => Widget.Button({
     class_name: 'previous-button',
-    visible: player.can_go_prev,
     onClicked: () => player.previous(),
     child: Widget.Icon('media-skip-backward-symbolic'),
+    binds: [['visible', player, 'can-go-prev']]
 });
 
 const ShuffleButton = (player) => Widget.Button({
