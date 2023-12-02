@@ -8,13 +8,13 @@ const TrackInfo = (player) => Widget.Box({
     children: [
         Widget.Label({
             class_name: 'track-name',
-            label: player.trackTitle,
+            binds: [['label', player, 'track-title']],
             justification: 'left',
             xalign: 0,
         }),
         Widget.Label({
             class_name: 'artist-name',
-            label: player.trackArtists.join(', '),
+            binds: [['label', player, 'track-artists', artists => artists.join(', ')]],
             justification: 'left',
             xalign: 0,
         }),
@@ -24,8 +24,121 @@ const TrackInfo = (player) => Widget.Box({
 const CoverArt = (player) => Widget.Box({
     className: 'cover-art',
     hexpand: false,
-    css: `background-image: url("${player.coverPath}");`
+    binds: [['css', player, 'cover-path', path => `background-image: url("${path}");`]]
 
+});
+
+function lengthStr(length) {
+    const min = Math.floor(length / 60);
+    const sec = Math.floor(length % 60);
+    const sec0 = sec < 10 ? '0' : '';
+    return `${min}:${sec0}${sec}`;
+}
+
+const Position = (player) => Widget.Box({
+    vertical: true,
+    children: [
+        Widget.Slider({
+            class_name: 'position-slider',
+            on_change : ({ value }) => player.position = player.length * value,
+            draw_value: false,
+            hexpand: true,
+            properties: [['update', slider => {
+                if (slider.dragging)
+                    return;
+                slider.value = player.position / player.length;
+            }]],
+            connections: [
+                [1000, self => self._update(self)],
+                [player, self => self._update(self), 'position'],
+            ],
+        }),
+        Widget.Box({
+            class_name: 'position-label',
+            hexpand: true,
+            children: [
+                Widget.Label({
+                    label: lengthStr(player.position),
+                    hpack: 'start',
+                    hexpand: true,
+                    connections: [
+                        [player, self => self.label = lengthStr(player.position), 'position'],
+                        [1000, self => self.label = lengthStr(player.position)],
+                    ],
+                }),
+                Widget.Label({
+                    binds: [['label', player, 'length', length => lengthStr(length)]],
+                    hpack: 'end',
+                    hexpand: true,
+                }),
+            ],
+        }),
+    ],
+});
+
+const PlayButton = (player) => Widget.Button({
+    class_name: 'play-button',
+    onClicked: () => player.playPause(),
+    child: Widget.Icon({
+        binds: [['icon', player, 'play-back-status', status => {
+            if (status === 'Playing')
+                return 'media-playback-pause-symbolic'
+            return 'media-playback-start-symbolic'
+        }]]
+    }),
+});
+
+const NextButton = (player) => Widget.Button({
+    class_name: 'next-button',
+        visible: player.can_go_next,
+    onClicked: () => player.next(),
+    child: Widget.Icon('media-skip-backward-rtl-symbolic'),
+});
+
+const PreviousButton = (player) => Widget.Button({
+    class_name: 'previous-button',
+    visible: player.can_go_prev,
+    onClicked: () => player.previous(),
+    child: Widget.Icon('media-skip-backward-symbolic'),
+});
+
+const ShuffleButton = (player) => Widget.Button({
+    onClicked: () => player.shuffle(),
+    child: Widget.Icon('media-playlist-shuffle-symbolic'),
+    binds: [
+        ['visible', player, 'shuffle-status', status => status != null],
+        ['class_name', player, 'shuffle-status', status => status ? 'shuffle-button active' : 'shuffle-button']
+    ],
+
+});
+
+const LoopButton = (player) => Widget.Button({
+    onClicked: () => player.loop(),
+    child: Widget.Icon({
+        binds: [['icon', player, 'loop-status', status => {
+            if (status === 'Track')
+                return 'media-playlist-repeat-song-symbolic'
+            return 'media-playlist-repeat-symbolic'
+        }]]
+    }),
+    binds: [
+        ['visible', player, 'loop-status', status => status != null],
+        ['class_name', player, 'loop-status', status => (status !== 'None') ? 'loop-button active' : 'loop-button'],
+    ],
+
+});
+
+const MediaControls = (player) => Widget.Box({
+    class_name: 'media-controls',
+    hexpand: true,
+    hpack: 'center',
+    children: [
+        ShuffleButton(player),
+        PreviousButton(player),
+        PlayButton(player),
+        NextButton(player),
+        LoopButton(player),
+    ],
 });
 
 let current = null;
@@ -44,13 +157,15 @@ const update = box => {
         children: [
             CoverArt(player),
             TrackInfo(player),
+            Position(player),
+            MediaControls(player),
         ]
     })];
 };
 
 const MediaBox = () => Widget.Box({
     className: 'media-box',
-    connections : [[Mpris, update]], 
+    connections : [[Mpris, update, 'notify::players']], 
 });
 
 const revealer = () => Widget.Revealer({
@@ -62,7 +177,15 @@ const revealer = () => Widget.Revealer({
     ],
     child: Widget.EventBox({
         child: MediaBox(),
-        onHoverLost: () => App.closeWindow('media'),
+        onHoverLost: (widget, event) => {
+            const x = Math.round(event.get_coords()[1])
+            const y = Math.round(event.get_coords()[2])
+            const w = widget.get_allocation().width - 15;
+            const h = widget.get_allocation().height - 15;
+            if (x <= 15 || x >= w || y <= 0 || y >= h) {
+                App.closeWindow('media')
+            }
+        },
     }),
 });
 

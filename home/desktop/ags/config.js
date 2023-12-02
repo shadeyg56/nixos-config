@@ -12,6 +12,10 @@ let config = {
         ControlCenter(),
         MediaWindow(),
     ],
+    closeWindowDelay: {
+        'controlcenter': 350,
+        'media': 350,
+      },
 };
 
 
