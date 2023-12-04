@@ -5,8 +5,13 @@ import Audio from 'resource:///com/github/Aylur/ags/service/audio.js';
 const VolumeSlider = () => Widget.Slider({
     draw_value: false,
     hexpand: true,
-    binds: [['value', Audio.speaker, 'volume']],
     on_change: ({ value }) => Audio.speaker.volume = value,
+    connections: [[Audio, slider => {
+      if (!Audio.speaker)
+        return;
+
+      slider.value = Audio.speaker.volume;
+    }, 'speaker-changed']],
 });
 
 export default () => Widget.Box({
@@ -34,9 +39,9 @@ export default () => Widget.Box({
         
                     stack.shown = `${show}`;
                 }, 'speaker-changed']],
+                binds: [['tooltip-text', Audio.speaker, 'volume', v =>
+                  `Volume: ${Math.floor(v * 100)}%`]],
               }),
-            binds: [['tooltip-text', Audio.speaker, 'volume', v =>
-                `Volume: ${Math.floor(v * 100)}%`]],
         }),
         VolumeSlider(),
     ],

@@ -10,6 +10,9 @@ class Brightness extends Service {
 
     #screen = 0;
 
+    #interface = Utils.exec("sh -c 'ls -w1 /sys/class/backlight | head -1'");
+    #max = Number(Utils.exec('brightnessctl max'));
+
     get screen() { return this.#screen; }
 
     set screen(percent) {
@@ -29,11 +32,16 @@ class Brightness extends Service {
 
     constructor() {
         super();
-        try {
-            this.#screen = Number(Utils.exec('brightnessctl g')) / Number(Utils.exec('brightnessctl m'));
-        } catch (error) {
-            console.error('missing dependancy: brightnessctl');
-        }
+        const brightness = `/sys/class/backlight/${this.#interface}/brightness`;
+        Utils.monitorFile(brightness, () => this.#onChange());
+
+        // initialize
+        this.#onChange();
+    }
+
+    #onChange() {
+        this.#screen = Number(Utils.exec('brightnessctl get')) / this.#max;
+        this.changed('screen');
     }
 }
 

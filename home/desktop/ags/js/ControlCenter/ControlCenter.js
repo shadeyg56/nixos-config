@@ -3,6 +3,7 @@ import App from 'resource:///com/github/Aylur/ags/app.js';
 import Header from './modules/header.js';
 import { NetworkToggle, WifiSelection } from './modules/network.js';
 import { BluetoothToggle, BluetoothDevices } from './modules/bluetooth.js';
+import { Governor } from './modules/auto-cpufreq.js';
 import Brightness from './modules/brightness.js';
 import Volume from './modules/volume.js'
 
@@ -35,7 +36,7 @@ const ControlCenter = () => Widget.Box({
                 Brightness(),
             ],
         }),      
-        Row([Homogeneous([NetworkToggle(), BluetoothToggle()])],
+        Row([Homogeneous([NetworkToggle(), BluetoothToggle(), Governor()])],
         [WifiSelection(), BluetoothDevices()]),
     ],
 });

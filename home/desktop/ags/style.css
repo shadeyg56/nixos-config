@@ -1,3 +1,5 @@
+@import url('./theme.css');
+
 * {
     all: unset;
 }
@@ -9,13 +11,13 @@ label {
 }
 
 .bar {
-    background-color: rgba(44, 44, 44, 0.8);
+    background-color: @base-transparent;
     border-radius: 24px;
     min-height: 32px;
   }
 
 .rightBox {
-    background-color: rgba(33, 33, 33, 0.5);
+    background-color: @crust-transparent;
     color: #ffffff;
     margin: 6px;
     padding: 0 12px;
@@ -24,7 +26,7 @@ label {
 }
 
 .clock {
-    background-color: rgba(33, 33, 33, 0.5);
+    background-color: @crust-transparent;
     color: #ffffff;
     margin: 6px;
     padding: 0 12px;
@@ -33,8 +35,8 @@ label {
   }
 
 .focusedTitle {
-    background-color: rgba(33, 33, 33, 0.5);
-    color: #F06292;
+    background-color: @crust-transparent;
+    color: @mauve;
     margin: 6px;
     padding: 0 12px;
     border-radius: 24px;
@@ -93,7 +95,7 @@ label {
 
 .workspaces {
     color: #ffffff;
-    background-color: rgba(33, 33, 33, 0.5);
+    background-color: @crust-transparent;
     margin: 6px;
     padding: 0 6px;
     border-radius: 24px;
@@ -107,14 +109,14 @@ label {
 }
 
 .workspaces button:hover {
-    color: #F06292;
+    color: @mauve;
 }
 
 /*.workspaces button:active,*/
 
 .workspaces button.focused {
     color: #212121;
-    background-color: #F06292;
+    background-color: @mauve;
     margin: 0.5rem 0;
     padding: 1px 0.8rem ;
     border-radius: 24px;
@@ -122,7 +124,7 @@ label {
 
 .controlcenter {
     color: #ffffff;
-    background-color: rgba(44, 44, 44, 0.8);
+    background-color: @base-transparent;
     border-radius: 12px;
     font-weight: bolder;
 }
@@ -131,7 +133,7 @@ label {
     padding: 6px 6px;
     margin: 5px 5px;
     border-radius: 6px;
-    background-color: rgb(68, 66, 66);
+    background-color: @surface1;
     font-size: 16pt;
 }
 
@@ -139,12 +141,12 @@ label {
     padding: 6px 6px;
     margin: 5px 5px;
     border-radius: 6px;
-    background-color: rgb(68, 66, 66);
+    background-color: @surface1;
     font-size: 12pt;
 }
 
 .system-box {
-    background-color: rgba(33, 33, 33, 1);
+    background-color: @crust;
     color: #ffffff;
     margin: 6px;
     padding: 6px 6px;
@@ -153,24 +155,24 @@ label {
 }
 
 .sliders-box {
-    background-color: rgba(33, 33, 33, 1);
+    background-color: @crust;
     padding: 3px 3px;
     margin: 6px;
 	border-radius: 12px;
 }
 
 .sliders-box button {
-    background-color: rgb(33, 33, 33);
+    background-color: @crust;
 }
 
 .sliders-box trough {
-    background-color: rgb(68, 66, 66);
+    background-color: @surface1;
     border-radius: 6px;
     min-height: 15px;
 }
 
 .sliders-box trough highlight {
-    background-color: #F06292;
+    background-color: @mauve;
     border-radius: 6px;
     min-height: 15px;
 }
@@ -188,7 +190,7 @@ label {
 }
 
 .battery-progress trough {
-    background-color: rgb(68, 66, 66);
+    background-color: @surface1;
     border-radius: 6px;
     min-height: 25px;
 
@@ -196,26 +198,26 @@ label {
 }
 
 .battery-progress trough progress {
-    background-color: #F06292;
+    background-color: @mauve;
     border-radius: 6px;
     min-height: 25px;
 }
 
 .toggle-button button{
-	background-color: rgb(33, 33 ,33);
+	background-color: @crust;
 }
 
 .toggle-button label{
-	background-color: rgb(33, 33 ,33)
+	background-color: @crust;
 }
 
-.toggle-button.active button, .toggle-button.active label, .toggle-button.active image{
-	background-color: #F06292;
+.toggle-button.active button, .toggle-button.active label, .toggle-button.active image {
+	background-color: @mauve;
     color: #000000;
 }
 
 .media-box {
-	background-color: rgba(33, 33, 33, 1);
+	background-color: @base-transparent;
 	min-width: 300px;
 	min-height: 435px;
 	border-radius: 25px;
@@ -271,7 +273,7 @@ label {
 }
 
 .position-slider trough highlight {
-    background-color: #F06292;
+    background-color: @mauve;
     border-radius: 24px;
     min-height: 5px;
 }
@@ -291,7 +293,7 @@ label {
 }
 
 .play-button {
-	background-color: #F06292;
+	background-color: @mauve;
 	color: rgba(0, 0, 0, 1);
 	border-radius: 50%;
 	padding: 5px;
@@ -306,11 +308,11 @@ label {
 }
 
 .loop-button.active {
-	color: #F06292;
+	color: @mauve;
 }
 
 .shuffle-button.active {
-	color: #F06292;
+	color: @mauve;
 }
 
 .next-button {
