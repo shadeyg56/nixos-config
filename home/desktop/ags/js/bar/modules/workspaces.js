@@ -1,10 +1,10 @@
 import Hyprland from 'resource:///com/github/Aylur/ags/service/hyprland.js';
 import { execAsync } from 'resource:///com/github/Aylur/ags/utils.js';
-import { Box, Button } from 'resource:///com/github/Aylur/ags/widget.js';
+import { Box, Button, Label } from 'resource:///com/github/Aylur/ags/widget.js';
 
-const Workspaces = () => {
+export const DynamicWorkspaces = () => {
     const workspacesHolder = Box({
-        className: 'workspaces',
+        className: 'workspaces-dynamic',
         connections: [
             [
                 Hyprland,
@@ -39,4 +39,28 @@ const Workspaces = () => {
     return workspacesHolder;
 };
 
-export default Workspaces;
+const Buttons = () => Array.from({ length: 10 }, (_, i) => Button({
+    child: Label(''),
+    vpack: 'center',
+    hpack: 'center',
+    connections: [[Hyprland, (self) => {
+        const currentWorkspace = Hyprland.active.workspace;
+        const workspaces = Hyprland.workspaces.map(ws => ws.id);
+        self.className = (i+1) === currentWorkspace.id ? "focused" : (workspaces.includes(i+1) ? "active" : "");
+        self.onClicked = () => execAsync([
+            "hyprctl",
+            "dispatch",
+            "workspace",
+            `${i+1}`,]);
+
+        self.child.css = (i+1) === currentWorkspace.id ? "min-width: 20px;" : "min-width: 1px;";
+    }, 'changed']]
+}))
+
+export const Workspaces = () => {
+    const workspacesHolder = Box({
+        className: 'workspaces',
+        children: Buttons(),
+    });
+    return workspacesHolder;
+};

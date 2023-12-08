@@ -1,6 +1,6 @@
 import Widget from 'resource:///com/github/Aylur/ags/widget.js';
 import Clock from './modules/clock.js';
-import Workspaces from './modules/workspaces.js';
+import { DynamicWorkspaces, Workspaces } from './modules/workspaces.js';
 import Battery from './modules/battery.js';
 import NetworkIndicator from './modules/network.js';
 import Volume from './modules/volume.js';
