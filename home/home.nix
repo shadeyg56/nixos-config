@@ -52,6 +52,7 @@
       prismlauncher
       moonlight-qt
       steam
+      stremio
       ungoogled-chromium
       icon-library
       (callPackage ../pkgs/adios.nix { })
