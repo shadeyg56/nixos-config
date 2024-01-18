@@ -26,6 +26,8 @@
 
       # programs
       vscode
+      eclipses.eclipse-java
+      logisim
       (discord.override {
 	withVencord = true;
       })
