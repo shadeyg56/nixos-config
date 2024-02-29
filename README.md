@@ -4,7 +4,7 @@ My dotfiles for nixos
 
 <a href="https://github.com/nixos/nixpkgs"><img src="https://img.shields.io/badge/NixOS-unstable-informational.svg?style=flat&logo=nixos&logoColor=CAD3F5&colorA=24273A&colorB=8AADF4"></a> [![Nix Build](https://github.com/shadeyg56/nixos-config/actions/workflows/build-nix.yml/badge.svg)](https://github.com/shadeyg56/nixos-config/actions/workflows/build-nix.yml)
 
-<img src=https://camo.githubusercontent.com/8c73ac68e6db84a5c58eef328946ba571a92829b3baaa155b7ca5b3521388cc9/68747470733a2f2f692e696d6775722e636f6d2f367146436c41312e706e67 alt=nixos-logo width=400/>
+<img src=https://gitlab.com/uploads/-/system/project/avatar/41881180/nixos_logo2_transp.png alt=nixos-logo width=400/>
 
 
 ## Why NixOS?
