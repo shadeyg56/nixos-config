@@ -51,7 +51,7 @@
     theme = (pkgs.callPackage ../../pkgs/catppuccin-grub.nix { });
   };
  
-  boot.kernelPackages = inputs.nixpkgs-rev.legacyPackages."x86_64-linux".linuxPackages_latest;
+  boot.kernelPackages = inputs.nixpkgs.legacyPackages."x86_64-linux".linuxPackages_latest;
 
   #build and load custom drivers
   boot.extraModulePackages = with config.boot.kernelPackages; [

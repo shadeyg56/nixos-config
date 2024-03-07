@@ -5,8 +5,6 @@
     # Official NixOS package source, using nixos-unstable branch here
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    nixpkgs-rev.url = "github:NixOS/nixpkgs?rev=ace5093e36ab1e95cb9463863491bee90d5a4183";
-
     # home-manager, used for managing user configuration
     home-manager = {
       url = "github:nix-community/home-manager/master";
