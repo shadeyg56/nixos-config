@@ -7,7 +7,6 @@
 
   imports = [
     ./hyprland
-    ./waybar
     ./ags
   ];
 
