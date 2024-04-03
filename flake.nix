@@ -3,7 +3,7 @@
   inputs = {
 
     # Official NixOS package source, using nixos-unstable branch here
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
 
     # home-manager, used for managing user configuration
     home-manager = {
