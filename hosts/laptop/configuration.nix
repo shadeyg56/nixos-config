@@ -27,6 +27,8 @@
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  # fixes Eclipse wayland crashing
+  environment.sessionVariables.WEBKIT_DISABLE_DMABUF_RENDERER = "1";
   environment.variables.QT_STYLE_OVERRIDE = lib.mkForce "";
   environment.variables.QT_QPA_PLATFORMTHEME = lib.mkForce "qt5ct";
 
