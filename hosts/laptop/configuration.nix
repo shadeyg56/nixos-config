@@ -164,7 +164,7 @@ security.pam.services.swaylock.text = ''
     };
 
     battery = {
-      governor = "powersave";
+      governor = "conservative";
       turbo = "auto";
     };
   };
