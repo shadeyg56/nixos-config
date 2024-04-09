@@ -6,8 +6,7 @@
 }:
 # run certain commands depending whether the system is on AC or on battery
 let
-  programs = lib.makeBinPath [inputs.hyprland.packages.${pkgs.system}.default];
-
+  programs = lib.makeBinPath [ inputs.hyprland.packages.${pkgs.system}.default ];
 
   unplugged = pkgs.writeShellScript "unplugged" ''
     export PATH=$PATH:${programs}
@@ -22,7 +21,8 @@ let
 
     hyprctl --batch 'keyword decoration:drop_shadow 1 ; keyword animations:enabled 1 ; keyword decoration:blur:enabled 1'
   '';
-in {
+in
+{
   services.udev.extraRules = ''
     # start/stop services on power (un)plug
     SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="1", RUN+="${plugged}"

@@ -1,14 +1,30 @@
-{ inputs, config, pkgs, lib, ... }:
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
-  
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
+  inputs,
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
+
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nix.settings = {
-    substituters = ["https://hyprland.cachix.org" "https://shades-nixos-config.cachix.org" "https://cache.nixos.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" "shades-nixos-config.cachix.org-1:MOIJALAf3hYttmgh8QA6NAN6kwXFLg0THonAkGsfbGs="];
+    substituters = [
+      "https://hyprland.cachix.org"
+      "https://shades-nixos-config.cachix.org"
+      "https://cache.nixos.org"
+    ];
+    trusted-public-keys = [
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "shades-nixos-config.cachix.org-1:MOIJALAf3hYttmgh8QA6NAN6kwXFLg0THonAkGsfbGs="
+    ];
   };
 
   # allow proprietary packages
@@ -23,7 +39,6 @@
     nix-prefetch-github
     virtiofsd
     cachix
-    
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -33,7 +48,13 @@
   environment.variables.QT_QPA_PLATFORMTHEME = lib.mkForce "qt5ct";
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "JetBrainsMono" "Ubuntu" "UbuntuMono"]; })
+    (nerdfonts.override {
+      fonts = [
+        "JetBrainsMono"
+        "Ubuntu"
+        "UbuntuMono"
+      ];
+    })
     font-awesome
     noto-fonts
     material-design-icons
@@ -52,12 +73,12 @@
     device = "nodev"; # efi only
     theme = (pkgs.callPackage ../../pkgs/catppuccin-grub.nix { });
   };
- 
+
   boot.kernelPackages = inputs.nixpkgs.legacyPackages."x86_64-linux".linuxPackages_latest;
 
   #build and load custom drivers
   boot.extraModulePackages = with config.boot.kernelPackages; [
-    (callPackage ../../pkgs/acer-wmi-battery.nix {})
+    (callPackage ../../pkgs/acer-wmi-battery.nix { })
   ];
   boot.kernelModules = [ "acer-wmi-battery" ];
   boot.kernelParams = [
@@ -72,18 +93,17 @@
     options = "--delete-older-than 1w";
   };
 
-  networking.hostName = "nixos"; 
+  networking.hostName = "nixos";
   networking.networkmanager.enable = true;
   networking.nameservers = [ "1.1.1.1" ];
 
   time.timeZone = "America/Chicago";
 
-
   # Enable the X11 windowing system.
   services.xserver = {
-     enable = true;
-     desktopManager.cinnamon.enable = true;
-     displayManager.sddm = {
+    enable = true;
+    desktopManager.cinnamon.enable = true;
+    displayManager.sddm = {
       enable = true;
       sugarCandyNix = {
         enable = true;
@@ -97,20 +117,20 @@
           Font = "JetBrainsMono Nerd Font";
         };
       };
-     };
+    };
   };
 
   services.gvfs.enable = true;
 
-#Enable policykit
-security.polkit.enable = true;
+  #Enable policykit
+  security.polkit.enable = true;
 
-#fix swaylock not accepting password
-security.pam.services.swaylock.text = ''
-  # PAM configuration file for the swaylock screen locker. By default, it includes
-  # the 'login' configuration file (see /etc/pam.d/login)
-  auth include login
-'';
+  #fix swaylock not accepting password
+  security.pam.services.swaylock.text = ''
+    # PAM configuration file for the swaylock screen locker. By default, it includes
+    # the 'login' configuration file (see /etc/pam.d/login)
+    auth include login
+  '';
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -137,21 +157,26 @@ security.pam.services.swaylock.text = ''
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.shadeyg56 = {
-  	isNormalUser = true;
-  	extraGroups = [ "networkmanager" "wheel" "libvirtd" "qemu-libvirtd" ];
+    isNormalUser = true;
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "libvirtd"
+      "qemu-libvirtd"
+    ];
     shell = pkgs.zsh;
-  	packages = with pkgs; [
-  		firefox
-  		tree
-     	];
+    packages = with pkgs; [
+      firefox
+      tree
+    ];
   };
 
   virtualisation.libvirtd.enable = true;
   virtualisation.podman.enable = true;
 
   programs.hyprland = {
-	  enable = true;
-  	package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
 
   programs.zsh.enable = true;
@@ -169,7 +194,6 @@ security.pam.services.swaylock.text = ''
     };
   };
 
-
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   programs.ssh.askPassword = "";
@@ -181,6 +205,4 @@ security.pam.services.swaylock.text = ''
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
-
 }
-

@@ -1,13 +1,14 @@
-{ ... }:{
+{ ... }:
+{
 
-    home.file.".swaylock/config".text = ''
-        ignore-empty-password
-        font=JetBrainsMono Nerd Font
+  home.file.".swaylock/config".text = ''
+    ignore-empty-password
+    font=JetBrainsMono Nerd Font
 
-        clock
-        screenshots
-        indicator
+    clock
+    screenshots
+    indicator
 
-        effect-blur=20x2
-    '';
+    effect-blur=20x2
+  '';
 }

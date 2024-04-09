@@ -9,5 +9,4 @@
     ./nvim
     ./direnv.nix
   ];
-
 }

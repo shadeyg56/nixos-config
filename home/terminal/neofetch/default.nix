@@ -5,5 +5,4 @@
     source = ../neofetch;
     recursive = true;
   };
-
 }

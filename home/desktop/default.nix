@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
 
   home.file."Pictures/Wallpapers" = {
     source = ./wallpapers;
@@ -9,5 +10,4 @@
     ./hyprland
     ./ags
   ];
-
 }
