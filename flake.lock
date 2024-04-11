@@ -27,11 +27,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1712690936,
-        "narHash": "sha256-ONmWY+UGrOx9q83qYbgAghts5tIT2v5plMRZ97zfxLw=",
+        "lastModified": 1712725025,
+        "narHash": "sha256-tPEVWgjKte/mVc+JhE700IcxLY9nv88pAU4SVFJWfJM=",
         "owner": "AdnanHodzic",
         "repo": "auto-cpufreq",
-        "rev": "2df634b09cdcf84b6ab9ebd3dfe267075a91595b",
+        "rev": "5e17ee31b14b2ca1314ffb30c054fe53aaa24962",
         "type": "github"
       },
       "original": {
@@ -65,11 +65,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1712688495,
-        "narHash": "sha256-NrVLXkpT9ZigiI8md6NIzHS+3lE4QTj30IgXG57O9iM=",
+        "lastModified": 1712759992,
+        "narHash": "sha256-2APpO3ZW4idlgtlb8hB04u/rmIcKA8O7pYqxF66xbNY=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "b00d0e4fe9cba0047f54e77418ddda5f17e6ef2c",
+        "rev": "31357486b0ef6f4e161e002b6893eeb4fafc3ca9",
         "type": "github"
       },
       "original": {
@@ -119,11 +119,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1712676164,
-        "narHash": "sha256-CDxfxIUTu+2nkLjq46LWHa98WB85AcdglURwi5obgAM=",
+        "lastModified": 1712797985,
+        "narHash": "sha256-2WS5zErQC7DuGUoVIiWUqQPXsIpdYBqFJip5XSpCVrU=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "1343aa865d04d80313b0e674c28ecfdbeb90e876",
+        "rev": "ac0f3411c18497a39498b756b711e092512de9e0",
         "type": "github"
       },
       "original": {
@@ -200,11 +200,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1712688479,
-        "narHash": "sha256-7O1l4gNw9sDk03nkdl59nqlef6TrtPaULU+FKQiXNEk=",
+        "lastModified": 1712778888,
+        "narHash": "sha256-JTssetEdUSdocmrq8UCIRr414fhQp1errtarYqo9IYs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "40d8229671633b1db7db5d28ae96969e3f52beb0",
+        "rev": "ca729afa8c24d9cfbecf752651faa76dc5824cfa",
         "type": "github"
       },
       "original": {
