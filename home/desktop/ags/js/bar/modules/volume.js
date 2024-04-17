@@ -12,22 +12,21 @@ const VolumeIcon = () => Box({
           ['34', Icon('audio-volume-medium-symbolic')],
           ['1', Icon('audio-volume-low-symbolic')],
           ['0', Icon('audio-volume-muted-symbolic')],
-        ],
-        connections: [[Audio, stack => {
+        ]
+      }).hook(Audio, self => {
           if (!Audio.speaker)
               return;
 
           if (Audio.speaker.isMuted) {
-            stack.shown = '0';
+            self.shown = '0';
             return;
           }
 
           const show = [101, 67, 34, 1, 0].find(
             threshold => threshold <= Audio.speaker.volume * 100);
 
-            stack.shown = `${show}`;
-        }, 'speaker-changed']],
-      }),
+            self.shown = `${show}`;
+        }, 'speaker-changed'),
     ],
 });
 
@@ -40,13 +39,12 @@ const PercentBar = () => Revealer({
     hexpand: true,
     drawValue: false,
     onChange: ({ value }) => Audio.speaker.volume = value,
-    connections: [[Audio, slider => {
+  }).hook(Audio, self => {
       if (!Audio.speaker)
-        return;
+        return
 
-      slider.value = Audio.speaker.volume;
-    }, 'speaker-changed']],
-  }),
+        self.value = Audio.speaker.volume
+    }, "speaker-changed"),
 });
 
 const percentBar = PercentBar();

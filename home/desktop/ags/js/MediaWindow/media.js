@@ -8,13 +8,13 @@ const TrackInfo = (player) => Widget.Box({
     children: [
         Widget.Label({
             class_name: 'track-name',
-            binds: [['label', player, 'track-title']],
+            label: player.bind("track-title"),
             justification: 'left',
             xalign: 0,
         }),
         Widget.Label({
             class_name: 'artist-name',
-            binds: [['label', player, 'track-artists', artists => artists.join(', ')]],
+            label: player.bind("track-artists").as(artists => artists.join(', ')),
             justification: 'left',
             xalign: 0,
         }),
@@ -24,8 +24,7 @@ const TrackInfo = (player) => Widget.Box({
 const CoverArt = (player) => Widget.Box({
     className: 'cover-art',
     hexpand: false,
-    binds: [['css', player, 'cover-path', path => `background-image: url("${path}");`]]
-
+    css: player.bind("cover-path").as(path => `background-image: url("${path}");`),
 });
 
 function lengthStr(length) {
@@ -48,11 +47,8 @@ const Position = (player) => Widget.Box({
                     return;
                 slider.value = player.position / player.length;
             }]],
-            connections: [
-                [1000, self => self._update(self)],
-                [player, self => self._update(self), 'position'],
-            ],
-        }),
+        }).hook(player, self => self._update(self), "position")
+          .poll(1000, self => self._update(self)), 
         Widget.Box({
             class_name: 'position-label',
             hexpand: true,
@@ -65,9 +61,10 @@ const Position = (player) => Widget.Box({
                         [player, self => self.label = lengthStr(player.position), 'position'],
                         [1000, self => self.label = lengthStr(player.position)],
                     ],
-                }),
+                }).hook(player, self => self.label = lengthStr(player.position), "position")
+                  .poll(1000, self => self.label = lengthStr(player.position)),
                 Widget.Label({
-                    binds: [['label', player, 'length', length => lengthStr(length)]],
+                    label: player.bind("length").as(length => lengthStr(length)),
                     hpack: 'end',
                     hexpand: true,
                 }),
@@ -80,11 +77,11 @@ const PlayButton = (player) => Widget.Button({
     class_name: 'play-button',
     onClicked: () => player.playPause(),
     child: Widget.Icon({
-        binds: [['icon', player, 'play-back-status', status => {
+        icon: player.bind("play-back-status").as(status => {
             if (status === 'Playing')
                 return 'media-playback-pause-symbolic'
             return 'media-playback-start-symbolic'
-        }]]
+        }),
     }),
 });
 
@@ -92,39 +89,34 @@ const NextButton = (player) => Widget.Button({
     class_name: 'next-button',
     onClicked: () => player.next(),
     child: Widget.Icon('media-skip-backward-rtl-symbolic'),
-    binds: [['visible', player, 'can-go-next']]
+    visible: player.bind("can-go-next"),
 });
 
 const PreviousButton = (player) => Widget.Button({
     class_name: 'previous-button',
     onClicked: () => player.previous(),
     child: Widget.Icon('media-skip-backward-symbolic'),
-    binds: [['visible', player, 'can-go-prev']]
+    visible: player.bind("can-go-prev"),
 });
 
 const ShuffleButton = (player) => Widget.Button({
     onClicked: () => player.shuffle(),
     child: Widget.Icon('media-playlist-shuffle-symbolic'),
-    binds: [
-        ['visible', player, 'shuffle-status', status => status != null],
-        ['class_name', player, 'shuffle-status', status => status ? 'shuffle-button active' : 'shuffle-button']
-    ],
-
+    visible: player.bind("shuffle-status"),
+    class_name: player.bind("shuffle-status").as(status => status ? 'shuffle-button active' : 'shuffle-button'),
 });
 
 const LoopButton = (player) => Widget.Button({
     onClicked: () => player.loop(),
     child: Widget.Icon({
-        binds: [['icon', player, 'loop-status', status => {
+        icon: player.bind("loop-status").as(status => {
             if (status === 'Track')
                 return 'media-playlist-repeat-song-symbolic'
             return 'media-playlist-repeat-symbolic'
-        }]]
+        })
     }),
-    binds: [
-        ['visible', player, 'loop-status', status => status != null],
-        ['class_name', player, 'loop-status', status => (status !== 'None') ? 'loop-button active' : 'loop-button'],
-    ],
+    visible: player.bind("loop-status", status => status != null),
+    class_name: player.bind("loop-status").as(status => (status !== "None") ? 'loop-button active' : 'loop-button'),
 
 });
 
@@ -165,16 +157,10 @@ const update = box => {
 
 const MediaBox = () => Widget.Box({
     className: 'media-box',
-    connections : [[Mpris, update, 'notify::players']], 
-});
+}).hook(Mpris, update, 'notify::players');
 
 const revealer = () => Widget.Revealer({
     transition: 'slide_down',
-    connections: [[App, (self, wname, visible) => {
-        if (wname === 'media')
-            self.revealChild = visible
-        }, 'window-toggled']
-    ],
     child: Widget.EventBox({
         child: MediaBox(),
         onHoverLost: (widget, event) => {
@@ -187,7 +173,10 @@ const revealer = () => Widget.Revealer({
             }
         },
     }),
-});
+}).hook(App, (self, wname, visible) => {
+        if (wname === 'media')
+            self.revealChild = visible
+    }, 'window-toggled');
 
 export default () => Widget.Window({
     name: 'media',

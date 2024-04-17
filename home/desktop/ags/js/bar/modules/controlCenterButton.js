@@ -9,11 +9,9 @@ const controlCenterButton = () => Widget.Button({
     onClicked: () => {
         App.toggleWindow('controlcenter')
     },
-    connections: [[App, (_, wname, visible) => {
-        if (wname === 'controlcenter')
-            buttonIcon.css = visible ? '-gtk-icon-transform: rotate(90deg);' : '-gtk-icon-transform: rotate(0deg);'
-        }, 'window-toggled']
-    ],
-});
+}).hook(App, (_, wname, visible) => {
+    if (wname === 'controlcenter')
+        buttonIcon.css = visible ? '-gtk-icon-transform: rotate(90deg);' : '-gtk-icon-transform: rotate(0deg);'
+    }, 'window-toggled');
 
 export default controlCenterButton;

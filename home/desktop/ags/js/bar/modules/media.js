@@ -6,12 +6,11 @@ import * as Utils from 'resource:///com/github/Aylur/ags/utils.js';
 const PlayerIcon = (player, { symbolic = true, ...props } = {}) => Widget.Icon({
     ...props,
     class_name: 'player-icon',
-    connections: [[player, icon => {
-        const name = `${player.entry}${symbolic ? '-symbolic' : ''}`;
-        Utils.lookUpIcon(name)
-            ? icon.icon = name
-            : icon.icon = 'emblem-music-symbolic'
-    }]],
+}).hook(player, self => {
+    const name = `${player.entry}${symbolic ? '-symbolic' : ''}`;
+    Utils.lookUpIcon(name)
+        ? self.icon = name
+        : self.icon = 'emblem-music-symbolic'
 });
 
 let current_track = null;
@@ -21,12 +20,9 @@ const NowPlaying = (player) => Widget.Revealer({
     revealChild: false,
     child: Widget.Label({
         class_name: 'now-playing',
-        connections: [[player, label => {
-            label.label = `${player.track_artists.join(', ')} - ${player.track_title}`;
-        }]]
-    }),
-    connections: [[player, revealer => {
-        if (current_track === player.track_title)
+    }).hook(player, label => label.label = `${player.track_artists.join(', ')} - ${player.track_title}`),
+}).hook(player, revealer => {
+    if (current_track === player.track_title)
             return;
         
         current_track = player.track_title;
@@ -34,8 +30,7 @@ const NowPlaying = (player) => Widget.Revealer({
         Utils.timeout(3000, () => {
             revealer.reveal_child = false;
         });
-    }]]
-})
+    });
 
 
 let current = null;
@@ -62,7 +57,6 @@ const update = box => {
 };
 
 const MediaBox = () => Widget.EventBox({
-    connections: [[Mpris, update, 'notify::players']],
     onHover: () => App.openWindow('media'),
     onHoverLost: (widget, event) => {
         const [_, x, y] = event.get_coords()
@@ -72,6 +66,6 @@ const MediaBox = () => Widget.EventBox({
             App.closeWindow('media');
         }
     },
-});
+}).hook(Mpris, update, 'notify::players');
 
 export default MediaBox;

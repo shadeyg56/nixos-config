@@ -3,9 +3,8 @@ import { Box, Button, Revealer, Label, Icon} from 'resource:///com/github/Aylur/
 
 const BatteryIcon = () => Icon({
     className: 'batIcon',
-    connections: [[Battery, icon => {
-      icon.icon = `battery-level-${Math.floor(Battery.percent / 10) * 10}${Battery.charging == true ? "-charging" : ""}-symbolic`;
-    }]],
+}).hook(Battery, self => {
+    self.icon = `battery-level-${Math.floor(Battery.percent / 10) * 10}${Battery.charging == true ? "-charging" : ""}-symbolic`
   })
 
 const PercentLabel = () => Revealer({
@@ -13,11 +12,11 @@ const PercentLabel = () => Revealer({
     revealChild: false,
     child: Label({
       className: 'batPercent',
-      connections: [[Battery, label => {
-        label.label = `${Battery.percent}%`;
-      }]],
-    }),
+    }).hook(Battery, self => {
+      self.label = `${Battery.percent}%`
+      })
 })
+
 
 const percentLabelInstance = PercentLabel();
 

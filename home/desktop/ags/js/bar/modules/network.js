@@ -8,11 +8,8 @@ const WifiIndicator = () => Widget.Box({
             transition: 'slide_right',
             revealChild: false,
             child: Widget.Label({
-                connections: [[Network, label => {
-                    label.label = `${Network.wifi.ssid}`;
-                }]],
-            }),
-        
+                label: Network.wifi.bind("ssid")
+            })
         })
     ],
 });
@@ -28,7 +25,7 @@ const NetworkIndicator = () => Widget.Stack({
         ['wired', WiredIndicator()],
         ["disconnected", Disconnected()],
     ],
-    binds: [['shown', Network, 'primary', p => p || 'disconnected']],
+    shown: Network.bind("primary", p => p || 'disconnected')
 });
 
 export default NetworkIndicator
