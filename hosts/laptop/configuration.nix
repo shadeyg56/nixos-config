@@ -100,10 +100,10 @@
   time.timeZone = "America/Chicago";
 
   # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    desktopManager.cinnamon.enable = true;
-    displayManager.sddm = {
+  services.xserver.enable = true;
+  services.xserver.desktopManager.cinnamon.enable = true;
+  services.displayManager = {
+    sddm = {
       enable = true;
       sugarCandyNix = {
         enable = true;
