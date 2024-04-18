@@ -51,12 +51,10 @@ const revealer = () => Widget.Revealer({
 
 export default () => Widget.Window({
     name: 'controlcenter',
-    popup: true,
-    focusable: true,
     anchor: ["top", "right"],
     visible: false,
     child: Widget.Box({
         css: 'padding: 1px;',
         child: revealer(),
     }),
-})
+}).keybind("Escape", (self) => App.closeWindow(self.name))

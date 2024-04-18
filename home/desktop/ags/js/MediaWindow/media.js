@@ -2,6 +2,20 @@ import Widget from 'resource:///com/github/Aylur/ags/widget.js';
 import App from 'resource:///com/github/Aylur/ags/app.js';
 import Mpris from 'resource:///com/github/Aylur/ags/service/mpris.js';
 
+function lengthStr(length) {
+    const min = Math.floor(length / 60);
+    const sec = Math.floor(length % 60);
+    const sec0 = sec < 10 ? '0' : '';
+    return `${min}:${sec0}${sec}`;
+}
+
+function updatePositionSlider(slider, player) {
+    if (slider.dragging)
+        return;
+    slider.value = player.position / player.length;
+
+}
+
 const TrackInfo = (player) => Widget.Box({
     class_name: 'track-info',
     vertical: true,
@@ -27,13 +41,6 @@ const CoverArt = (player) => Widget.Box({
     css: player.bind("cover-path").as(path => `background-image: url("${path}");`),
 });
 
-function lengthStr(length) {
-    const min = Math.floor(length / 60);
-    const sec = Math.floor(length % 60);
-    const sec0 = sec < 10 ? '0' : '';
-    return `${min}:${sec0}${sec}`;
-}
-
 const Position = (player) => Widget.Box({
     vertical: true,
     children: [
@@ -42,13 +49,7 @@ const Position = (player) => Widget.Box({
             on_change : ({ value }) => player.position = player.length * value,
             draw_value: false,
             hexpand: true,
-            properties: [['update', slider => {
-                if (slider.dragging)
-                    return;
-                slider.value = player.position / player.length;
-            }]],
-        }).hook(player, self => self._update(self), "position")
-          .poll(1000, self => self._update(self)), 
+        }).poll(1000, self => updatePositionSlider(self, player)),
         Widget.Box({
             class_name: 'position-label',
             hexpand: true,
@@ -57,8 +58,7 @@ const Position = (player) => Widget.Box({
                     label: lengthStr(player.position),
                     hpack: 'start',
                     hexpand: true,
-                }).hook(player, self => self.label = lengthStr(player.position), "position")
-                  .poll(1000, self => self.label = lengthStr(player.position)),
+                }).poll(1000, self => self.label = lengthStr(player.position)),
                 Widget.Label({
                     label: player.bind("length").as(length => lengthStr(length)),
                     hpack: 'end',
@@ -176,12 +176,10 @@ const revealer = () => Widget.Revealer({
 
 export default () => Widget.Window({
     name: 'media',
-    popup: true,
-    focusable: false,
     anchor: ["top"],
     visible: false,
     child: Widget.Box({
         css: 'padding: 1px;',
         child: revealer(),
     }),
-})
+}).keybind("Escape", (self) => App.closeWindow(self.name))

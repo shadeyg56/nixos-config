@@ -19,4 +19,4 @@ let config = {
 };
 
 
-export default config;
+App.config(config);
