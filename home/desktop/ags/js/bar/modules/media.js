@@ -25,12 +25,14 @@ const NowPlaying = (player) => Widget.Revealer({
     if (current_track === player.track_title)
             return;
         
-        current_track = player.track_title;
-        revealer.reveal_child = true;
-        Utils.timeout(3000, () => {
+    current_track = player.track_title;
+    revealer.reveal_child = true;
+    let timeout_track = current_track;
+    Utils.timeout(3000, () => {
+        if (timeout_track === current_track)
             revealer.reveal_child = false;
-        });
     });
+});
 
 
 let current = null;
