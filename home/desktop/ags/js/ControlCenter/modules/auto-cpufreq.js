@@ -7,7 +7,7 @@ export const Governor = () => Widget.Box({
     children: [
         Widget.Icon('cpu-symbolic'),
         Widget.Label({
-            binds: [['label', Auto_CPUFreq, 'governor', governor => governor.toUpperCase()]],
+            label: Auto_CPUFreq.bind('governor').as(g => g.charAt(0).toUpperCase() + g.slice(1)),
         })
     ]
 })

@@ -43,13 +43,11 @@ const ControlCenter = () => Widget.Box({
 
 const revealer = () => Widget.Revealer({
     transition: 'slide_down',
-    connections: [[App, (self, wname, visible) => {
-        if (wname === 'controlcenter')
-            self.revealChild = visible
-        }, 'window-toggled']
-    ],
     child: ControlCenter(),
-});
+}).hook(App, (self, wname, visible) => {
+    if (wname === 'controlcenter')
+        self.revealChild = visible
+}, 'window-toggled');
 
 export default () => Widget.Window({
     name: 'controlcenter',

@@ -57,10 +57,6 @@ const Position = (player) => Widget.Box({
                     label: lengthStr(player.position),
                     hpack: 'start',
                     hexpand: true,
-                    connections: [
-                        [player, self => self.label = lengthStr(player.position), 'position'],
-                        [1000, self => self.label = lengthStr(player.position)],
-                    ],
                 }).hook(player, self => self.label = lengthStr(player.position), "position")
                   .poll(1000, self => self.label = lengthStr(player.position)),
                 Widget.Label({

@@ -7,7 +7,7 @@ export const BatteryProgress = () => Widget.Box({
     class_name: 'battery-progress',
     vexpand: true,
     hexpand: true,
-    binds: [['visible', Battery, 'available']],
+    visible: Battery.bind('available'),
     // connections: [[Battery, w => {
     //     w.toggleClassName('charging', Battery.charging || Battery.charged);
     //     w.toggleClassName('medium', Battery.percent < options.battery.medium.value);
@@ -19,14 +19,9 @@ export const BatteryProgress = () => Widget.Box({
         child: Widget.ProgressBar({
             hexpand: true,
             vexpand: true,
-            connections: [[Battery, progress => {
-                progress.fraction = Battery.percent / 100;
-            }]],
-        }),
+        }).hook(Battery, progress => progress.fraction = Battery.percent / 100),
         overlays: [Widget.Label({
-            connections: [[Battery, l => {
-                l.label =  `${Battery.percent}%`
-            }]],
+            label: Battery.bind('percent').as(p => `${p}%`),
         })],
     }),
 });
@@ -45,10 +40,7 @@ export default () => Widget.Box({
                             class_name: 'uptime',
                             hexpand: false,
                             vpack: 'center',
-                            connections: [[uptime, label => {
-                                label.label = `uptime: ${uptime.value}`;
-                            }]],
-                        }),
+                        }).hook(uptime, label => label.label = `uptime: ${uptime.value}`),
                         Widget.Button({
                             vpack: 'center',
                             on_clicked: () => Lockscreen.lockscreen(),
