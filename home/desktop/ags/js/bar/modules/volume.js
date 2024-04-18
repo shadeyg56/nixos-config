@@ -6,13 +6,13 @@ const VolumeIcon = () => Box({
   className: 'volIcon',
     children: [
       Stack({
-        items: [
-          ['101', Icon('audio-volume-overamplified-symbolic')],
-          ['67', Icon('audio-volume-high-symbolic')],
-          ['34', Icon('audio-volume-medium-symbolic')],
-          ['1', Icon('audio-volume-low-symbolic')],
-          ['0', Icon('audio-volume-muted-symbolic')],
-        ]
+        children: {
+          '101': Icon('audio-volume-overamplified-symbolic'),
+          '67': Icon('audio-volume-high-symbolic'),
+          '34': Icon('audio-volume-medium-symbolic'),
+          '1':  Icon('audio-volume-low-symbolic'),
+          '0':  Icon('audio-volume-muted-symbolic'),
+        },
       }).hook(Audio, self => {
           if (!Audio.speaker)
               return;

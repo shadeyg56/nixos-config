@@ -20,11 +20,11 @@ const Disconnected = () => Widget.Icon('network-wireless-offline-symbolic');
 
 const NetworkIndicator = () => Widget.Stack({
     className: 'netIcon',
-    items: [
-        ['wifi', WifiIndicator()],
-        ['wired', WiredIndicator()],
-        ["disconnected", Disconnected()],
-    ],
+    children: {
+        'wifi':  WifiIndicator(),
+        'wired': WiredIndicator(),
+        "disconnected": Disconnected(),
+    },
     shown: Network.bind("primary", p => p || 'disconnected')
 });
 

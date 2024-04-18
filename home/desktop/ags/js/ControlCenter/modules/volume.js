@@ -16,13 +16,13 @@ export default () => Widget.Box({
     children: [
         Widget.Button({
             child: Widget.Stack({
-                items: [
-                  ['101', Widget.Icon('audio-volume-overamplified-symbolic')],
-                  ['67', Widget.Icon('audio-volume-high-symbolic')],
-                  ['34', Widget.Icon('audio-volume-medium-symbolic')],
-                  ['1', Widget.Icon('audio-volume-low-symbolic')],
-                  ['0', Widget.Icon('audio-volume-muted-symbolic')],
-                ],
+                children: {
+                  '101': Widget.Icon('audio-volume-overamplified-symbolic'),
+                  '67': Widget.Icon('audio-volume-high-symbolic'),
+                  '34': Widget.Icon('audio-volume-medium-symbolic'),
+                  '1':  Widget.Icon('audio-volume-low-symbolic'),
+                  '0':  Widget.Icon('audio-volume-muted-symbolic'),
+                },
                 tooltipText: Audio.speaker.bind('volume')
                   .as(v => `Volume: ${Math.floor(v * 100)}%`),
               }).hook(Audio, stack => {
