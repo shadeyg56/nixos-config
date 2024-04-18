@@ -25,8 +25,11 @@ export const WifiSelection = () => Menu({
     content: [
         Widget.Box({
             vertical: true,
-        }).hook(Network, box => box.children =
-            Network.wifi?.access_points.map(ap => Widget.Button({
+        }).hook(Network, box => {
+            let access_points = Network.wifi.access_points.filter((ap, index, array) => {
+                return array.findIndex(obj => obj.ssid === ap.ssid) === index;
+            })
+            box.children = access_points.map(ap => Widget.Button({
                 on_clicked: () => Utils.execAsync(`nmcli device wifi connect ${ap.bssid}`),
                 child: Widget.Box({
                     children: [
@@ -39,7 +42,7 @@ export const WifiSelection = () => Menu({
                         }),
                     ],
                 }),
-            })),
-        ),
+            }))
+        }),
     ],
 });
