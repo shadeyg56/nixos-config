@@ -8,14 +8,16 @@ class auto_cpufreqService extends Service {
             this,
             {},
             {
-                'governor': ['string', 'r']
+                'governor': ['string', 'rw']
             }
         );
     }
 
     #governor = 'Default';
 
-    setGovernor(governor) {
+    get governor() { return this.#governor; }
+
+    set governor(governor) {
         if (governor == 'Default') {
             governor = 'reset'
         }
@@ -29,6 +31,13 @@ class auto_cpufreqService extends Service {
 
     constructor() {
         super();
+        const governor_file = '/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor';
+        Utils.monitorFile(governor_file, () => this.#onChange());
+        
+        this.#onChange();
+    }
+
+    #onChange() {
         Utils.execAsync('auto-cpufreq --get-state')
             .then((governor) => {
                 this.#governor = governor;
@@ -36,8 +45,6 @@ class auto_cpufreqService extends Service {
             })
             .catch(console.error);
     }
-
-    get governor() { return this.#governor; }
 
 };
 

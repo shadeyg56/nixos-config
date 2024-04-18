@@ -229,7 +229,8 @@ label {
 	background-color: @crust;
 }
 
-.toggle-button.active button, .toggle-button.active label, .toggle-button.active image {
+.toggle-button.active button, .toggle-button.active label, .toggle-button.active image,
+.governor-button.active, .governor-button.active label{
 	background-color: @mauve;
     color: #000000;
 }
