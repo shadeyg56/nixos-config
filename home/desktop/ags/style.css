@@ -349,3 +349,44 @@ label {
 .shuffle-button {
 	margin: 0 25px 0 0;
 }
+
+.calendar-container{
+    background-color: @base;
+
+}
+
+calendar{
+	background: @crust;
+	font-family: "Ubuntu Nerd Font";
+	font-weight: bold;
+	font-size: 15px;
+	padding: 5px;
+    border-radius: 12px;
+
+}
+
+calendar:selected {
+	background-color: @mauve;
+	border-radius: 50px;
+
+}
+
+.calendar-container {
+	padding: 10px;
+    border-radius: 12px;
+}
+
+.date-and-time {
+	margin: 30px 30px 0;
+}
+
+.big-clock {
+	font-size: 50px;
+}
+
+.cat {
+	background-size: cover;
+	margin: 0 15px;
+    border-radius: 12px;
+    min-height: 125px;
+}
