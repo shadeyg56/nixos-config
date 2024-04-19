@@ -98,7 +98,7 @@ const PreviousButton = (player) => Widget.Button({
 const ShuffleButton = (player) => Widget.Button({
     onClicked: () => player.shuffle(),
     child: Widget.Icon('media-playlist-shuffle-symbolic'),
-    visible: player.bind("shuffle-status"),
+    visible: player.bind("shuffle-status").as(status => status != null),
     class_name: player.bind("shuffle-status").as(status => status ? 'shuffle-button active' : 'shuffle-button'),
 });
 
@@ -111,7 +111,7 @@ const LoopButton = (player) => Widget.Button({
             return 'media-playlist-repeat-symbolic'
         })
     }),
-    visible: player.bind("loop-status", status => status != null),
+    visible: player.bind("loop-status").as(status => status != null),
     class_name: player.bind("loop-status").as(status => (status !== "None") ? 'loop-button active' : 'loop-button'),
 
 });
