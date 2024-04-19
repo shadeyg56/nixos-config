@@ -67,7 +67,7 @@ export const ArrowToggleButton = ({
                 class_name: 'label-box horizontal',
                 children: [icon, label],
             }),
-            on_clicked: () => {
+            on_primary_click: () => {
                 if (condition()) {
                     deactivate();
                     if (opened.value === name)
@@ -75,6 +75,10 @@ export const ArrowToggleButton = ({
                 } else {
                     activate();
                 }
+            },
+            on_secondary_click: () => {
+                activate();
+                opened.value = opened.value === name ? '' : name;
             },
         }),
         //Arrow(name, activateOnArrow && activate),
