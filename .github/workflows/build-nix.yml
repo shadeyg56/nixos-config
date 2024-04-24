@@ -18,21 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: "Maximize Disk Space"
-        run: |
-          sudo rm -rf $AGENT_TOOLSDIRECTORY
-          sudo rm -rf /usr/local/.ghcup
-          sudo rm -rf /usr/local/share/powershell
-          sudo rm -rf /usr/local/share/chromium
-          sudo rm -rf /usr/local/lib/node_modules
-          sudo rm -rf /usr/local/lib/heroku
-          sudo rm -rf /var/lib/docker/overlay2
-          sudo rm -rf /home/linuxbrew
-          sudo rm -rf /home/runner/.rustup
-    
-      - name: "Maximize Disk Space part 2"
         uses: easimon/maximize-build-space@v8
         with:
-          root-reserve-mb: 1024
+          root-reserve-mb: 20480
           swap-size-mb: 1024
           build-mount-path: /nix
           remove-dotnet: "true"
