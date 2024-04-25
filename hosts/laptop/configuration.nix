@@ -39,6 +39,7 @@
     nix-prefetch-github
     virtiofsd
     cachix
+    nh
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

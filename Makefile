@@ -7,8 +7,7 @@
 KEEP?=10
 
 deploy:
-	nixos-rebuild switch --flake . --use-remote-sudo
-
+	nh os switch --ask .
 test:
 	nixos-rebuild test --flake . --use-remote-sudo
 
