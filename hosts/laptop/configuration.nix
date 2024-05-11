@@ -106,6 +106,7 @@
   services.displayManager = {
     sddm = {
       enable = true;
+      wayland.enable = true;
       sugarCandyNix = {
         enable = true;
         settings = {
