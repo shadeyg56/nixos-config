@@ -53,7 +53,6 @@
     virt-manager
     filezilla
     grapejuice
-    minecraft
     prismlauncher
     moonlight-qt
     steam
