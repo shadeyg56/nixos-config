@@ -65,11 +65,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716847642,
-        "narHash": "sha256-rjEswRV0o23eBBils8lJXyIGha+l/VjV73IPg+ztxgk=",
+        "lastModified": 1716930911,
+        "narHash": "sha256-t4HT5j3Jy7skRB5PINnxcEBCkgE89rGBpwTI7YS4Ffo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "10c7c219b7dae5795fb67f465a0d86cbe29f25fa",
+        "rev": "a9b36cbe9292a649222b89fdb9ae9907e9c74086",
         "type": "github"
       },
       "original": {
@@ -118,11 +118,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1716842732,
-        "narHash": "sha256-b80p4J7OSp9LslyJimj2a4wCCNLdjJL3bIgGt+f9Gz4=",
+        "lastModified": 1716932244,
+        "narHash": "sha256-hyacwt+mqkIQ+stx1RyIMmq8UYE/JkMqpxVbZOLzEyI=",
         "ref": "refs/heads/main",
-        "rev": "722d537a91a9beacf9c12fc1317ff1fbe10ffac5",
-        "revCount": 4747,
+        "rev": "ebf258788e46cd0320fb17138ba413f719180418",
+        "revCount": 4749,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -228,11 +228,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1716792620,
-        "narHash": "sha256-wQmXzee/veETYJv93TkRYsAQkEdt2QYCJeJil5SrJfg=",
+        "lastModified": 1716924492,
+        "narHash": "sha256-9/Ro5/MfI+PNMF8jzh7+gXDPUHeOzL1e/iw3p4z6Ttc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "7d7cf1590c05d799745bf456f2b95b798f48d3bb",
+        "rev": "4ae13643e7f2cd4bc6555fce074865d9d14e7c24",
         "type": "github"
       },
       "original": {
