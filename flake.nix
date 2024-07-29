@@ -13,7 +13,10 @@
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    spicetify-nix.url = {
+      url = "github:the-argus/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     sddm-sugar-candy-nix = {
       url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
