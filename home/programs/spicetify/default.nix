@@ -5,7 +5,7 @@
   ...
 }:
 let
-  spicePkgs = inputs.spicetify-nix.packages.x86_64-linux.default;
+  spicePkgs = inputs.spicetify-nix.legacyPackages.x86_64-linux;
 in
 {
   imports = [ inputs.spicetify-nix.homeManagerModules.default ];
