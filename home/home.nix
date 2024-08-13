@@ -30,7 +30,7 @@
     gh
 
     # programs
-    vscode
+    vscode-fhs
     eclipses.eclipse-java
     logisim
     (discord.override { withVencord = true; })
@@ -59,6 +59,7 @@
     stremio
     ungoogled-chromium
     icon-library
+    ventoy-full
     (callPackage ../pkgs/adios.nix { })
 
     # system
