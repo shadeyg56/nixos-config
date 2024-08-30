@@ -52,7 +52,6 @@
     okular
     virt-manager
     filezilla
-    grapejuice
     prismlauncher
     moonlight-qt
     steam
