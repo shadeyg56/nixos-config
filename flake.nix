@@ -32,6 +32,9 @@
       url = "github:Aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    catppuccin.url = "github:catppuccin/nix";
+
   };
   outputs =
     {
@@ -41,6 +44,7 @@
       hyprland,
       sddm-sugar-candy-nix,
       auto-cpufreq,
+      catppuccin,
       ...
     }@inputs:
     let
@@ -69,6 +73,7 @@
             }
             sddm-sugar-candy-nix.nixosModules.default
             auto-cpufreq.nixosModules.default
+            catppuccin.nixosModules.catppuccin
           ];
         };
       };
