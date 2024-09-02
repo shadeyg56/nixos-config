@@ -1,15 +1,15 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
+  imports = [ inputs.catppuccin.homeManagerModules.catppuccin ];
 
   gtk = {
     enable = true;
-    theme = {
-      name = "Catppuccin-Macchiato-Standard-Lavender-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "lavender" ];
-        size = "standard";
-        variant = "macchiato";
-      };
+    catppuccin= {
+      enable = true;
+      flavor = "macchiato";
+      accent = "lavender";
+      size = "standard";
+      tweaks = [ "normal" ];
     };
     iconTheme = {
       name = "Papirus-Dark";
@@ -20,6 +20,4 @@
       size = 10;
     };
   };
-
-  home.sessionVariables.GTK_THEME = "Catppuccin-Macchiato-Standard-Lavender-Dark";
 }
