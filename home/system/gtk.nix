@@ -20,4 +20,11 @@
       size = 10;
     };
   };
+
+  catppuccin.pointerCursor = {
+    enable = true;
+    flavor = "macchiato";
+    accent = "lavender";
+  };
+  
 }
