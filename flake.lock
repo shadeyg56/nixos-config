@@ -505,16 +505,15 @@
         "nur": "nur"
       },
       "locked": {
-        "lastModified": 1729134765,
+        "lastModified": 1729139161,
         "narHash": "sha256-vFDvJSMprdVUGcxpJhJsGyT8E4ETbHcTU3Dcqgflx0c=",
-        "owner": "shadeyg56",
+        "owner": "adriankarlen",
         "repo": "textfox",
-        "rev": "ec782edf93b108c1d861e1adfeff34211c4ceae7",
+        "rev": "da0c2824b8a67ef47c0818df43c8ee6dc52b4994",
         "type": "github"
       },
       "original": {
-        "owner": "shadeyg56",
-        "ref": "nix-support",
+        "owner": "adriankarlen",
         "repo": "textfox",
         "type": "github"
       }

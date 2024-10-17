@@ -36,7 +36,7 @@
     catppuccin.url = "github:catppuccin/nix";
 
     textfox = {
-      url = "github:shadeyg56/textfox/nix-support";
+      url = "github:adriankarlen/textfox";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
