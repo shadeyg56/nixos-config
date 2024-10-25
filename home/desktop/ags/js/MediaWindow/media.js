@@ -25,6 +25,8 @@ const TrackInfo = (player) => Widget.Box({
             label: player.bind("track-title"),
             justification: 'left',
             xalign: 0,
+            truncate: 'end',
+            
         }),
         Widget.Label({
             class_name: 'artist-name',

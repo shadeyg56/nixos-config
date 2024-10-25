@@ -20,6 +20,8 @@ const NowPlaying = (player) => Widget.Revealer({
     revealChild: false,
     child: Widget.Label({
         class_name: 'now-playing',
+        truncate: "end",
+        maxWidthChars: 25
     }).hook(player, label => label.label = `${player.track_artists.join(', ')} - ${player.track_title}`),
 }).hook(player, revealer => {
     if (current_track === player.track_title)
