@@ -60,6 +60,7 @@
     icon-library
     ventoy-full
     (callPackage ../pkgs/adios.nix { })
+    (callPackage ../pkgs/marie-sim.nix { })
 
     # system
     udev
