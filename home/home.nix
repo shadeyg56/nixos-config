@@ -59,6 +59,7 @@
     ungoogled-chromium
     icon-library
     ventoy-full
+    imagemagick
     (callPackage ../pkgs/adios.nix { })
     (callPackage ../pkgs/marie-sim.nix { })
 
