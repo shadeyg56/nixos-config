@@ -46,7 +46,6 @@
     playerctl
     hyprpaper
     grim
-    swayidle
     pamixer
     libreoffice-fresh
     okular
@@ -74,6 +73,7 @@
     wineWowPackages.waylandFull
     jdk17
     nixd
+    hypridle
     # use spicetify adblock instead
     #(callPackage ./pkgs/spotify-adblock.nix { })
 

@@ -7,7 +7,7 @@
   };
 
   imports = [
-    ./hyprland
+    ./hypr
     ./ags
   ];
 }
