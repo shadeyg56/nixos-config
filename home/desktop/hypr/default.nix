@@ -7,7 +7,7 @@
 }:
 {
   home.file.".config/hypr" = {
-    source = ../hyprland;
+    source = ../hypr;
     recursive = true;
   };
 
