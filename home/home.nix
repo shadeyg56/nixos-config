@@ -74,6 +74,7 @@
     jdk17
     nixd
     hypridle
+    hyprshot
     # use spicetify adblock instead
     #(callPackage ./pkgs/spotify-adblock.nix { })
 
