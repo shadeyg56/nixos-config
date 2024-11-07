@@ -26,12 +26,13 @@ function Workspaces() {
     return (
         <box className="workspaces">
             {Array.from({length: 10}, (_, i) => 
-            <button className={bind(getButtonClass(i+1))}>
+            <button className={bind(getButtonClass(i+1))}
+            valign={Gtk.Align.CENTER}
+            halign={Gtk.Align.CENTER}
+            >
                 <label 
                     label={''}
                     css={bind(hyprland, "focusedWorkspace").as((currentWorkspace) => (i+1) === currentWorkspace.id ? "min-width: 20px;" : "min-width: 1px;")}
-                    valign={Gtk.Align.CENTER}
-                    halign={Gtk.Align.CENTER}
                 />
             </button>)}
         </box>
