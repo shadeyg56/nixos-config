@@ -3,6 +3,7 @@ import Clock from "./modules/Clock"
 import Workspaces from "./modules/Workspaces"
 import FocusedWindow from "./modules/focusedWindow"
 import Volume from "./modules/volume"
+import BatteryWidget from "./modules/battery"
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
     return <window
@@ -26,6 +27,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
             <box halign={Gtk.Align.END}>
                 <box className="rightBox">
                     <Volume/>
+                    <BatteryWidget/>
                 </box>
             </box>
         </centerbox>
