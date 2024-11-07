@@ -4,6 +4,8 @@ stdenv.mkDerivation rec {
   pname = "MarieSim";
   version = "1.3.01";
 
+  GTK_THEME = "Adwaita";
+
   src = fetchFromGitHub {
     owner = "chippography";
     repo = "MARIESimulator";
@@ -29,7 +31,8 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     makeWrapper ${jdk}/bin/java $out/bin/MarieSim \
-    --add-flags "-cp $out/MarieSim.jar MarieSim1"
+    --add-flags "-cp $out/MarieSim.jar MarieSim1" \
+    --set GTK_THEME $GTK_THEME
 
     cp ${desktopItem}/share/applications/* $out/share/applications
   '';
