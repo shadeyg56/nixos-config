@@ -29,7 +29,7 @@
     };
 
     ags = {
-      url = "github:Aylur/ags";
+      url = "github:Aylur/ags/v2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
