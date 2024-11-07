@@ -1,6 +1,7 @@
 import { App, Astal, Gtk, Gdk } from "astal/gtk3"
 import Clock from "./modules/Clock"
 import Workspaces from "./modules/Workspaces"
+import FocusedWindow from "./modules/focusedWindow"
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
     return <window
@@ -16,6 +17,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         <centerbox>
             <box>
                 <Workspaces/>
+                <FocusedWindow/>
             </box>
             <Clock/>
             <box></box>
