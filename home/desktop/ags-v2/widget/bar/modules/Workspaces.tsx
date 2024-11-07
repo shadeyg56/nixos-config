@@ -29,6 +29,7 @@ function Workspaces() {
             <button className={bind(getButtonClass(i+1))}
             valign={Gtk.Align.CENTER}
             halign={Gtk.Align.CENTER}
+            onClick={() => hyprland.dispatch("workspace", (i+1).toString())}
             >
                 <label 
                     label={''}
