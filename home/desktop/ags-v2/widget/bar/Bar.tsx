@@ -1,20 +1,22 @@
 import { App, Astal, Gtk, Gdk } from "astal/gtk3"
-import { Variable } from "astal"
 import Clock from "./modules/Clock"
-
-const time = Variable("").poll(1000, "date")
+import Workspaces from "./modules/Workspaces"
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
     return <window
-        className="Bar"
+        className="bar"
         gdkmonitor={gdkmonitor}
         exclusivity={Astal.Exclusivity.EXCLUSIVE}
         anchor={Astal.WindowAnchor.TOP
             | Astal.WindowAnchor.LEFT
             | Astal.WindowAnchor.RIGHT}
+        margin={6}
+        marginBottom={0}
         application={App}>
         <centerbox>
-            <box></box>
+            <box>
+                <Workspaces/>
+            </box>
             <Clock/>
             <box></box>
         </centerbox>
