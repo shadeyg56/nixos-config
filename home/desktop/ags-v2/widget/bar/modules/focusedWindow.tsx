@@ -9,12 +9,12 @@ function FocusedWindow() {
     return (
         <box 
         className="focusedTitle"
-        visible={bind(hyprland, "focusedClient").as((client) => client.title ? true : false)}
+        visible={bind(hyprland, "focusedClient").as((client) => client ? true : false)}
         >
             <label
             maxWidthChars={40}
             ellipsize={Pango.EllipsizeMode.MIDDLE}
-            label={bind(hyprland, "focusedClient").as((c) => c.title)}
+            label={bind(hyprland, "focusedClient").as((c) => c?.title ?? "")}
             >
 
             </label>
