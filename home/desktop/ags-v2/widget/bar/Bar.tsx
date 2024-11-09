@@ -4,6 +4,7 @@ import Workspaces from "./modules/Workspaces"
 import FocusedWindow from "./modules/focusedWindow"
 import Volume from "./modules/volume"
 import BatteryWidget from "./modules/battery"
+import NetworkIndicator from "./modules/Network"
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
     return <window
@@ -28,6 +29,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
                 <box className="rightBox">
                     <Volume/>
                     <BatteryWidget/>
+                    <NetworkIndicator/>
                 </box>
             </box>
         </centerbox>
