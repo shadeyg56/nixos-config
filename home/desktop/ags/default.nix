@@ -9,6 +9,7 @@
       wireplumber
       battery
       network
+      mpris
     ];
   };
 }
