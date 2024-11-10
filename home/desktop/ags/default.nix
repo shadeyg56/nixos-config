@@ -2,7 +2,7 @@
 {
   programs.ags = {
     enable = true;
-    configDir = ../ags;
+    configDir = ../ags-v2;
     
     extraPackages = with inputs.ags.packages.${pkgs.system}; [
       hyprland
