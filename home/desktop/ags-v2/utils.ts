@@ -11,10 +11,16 @@ export const uptime = Variable("").poll(60_000, "cat /proc/uptime", (out) => {
         return `${h}:${s < 10 ? '0' + s : s}`;
 });
 
-export function closeWithDelay(windowName: string, revealer: Widget.Revealer, delay: number=300) {
+export function toggleWindow(windowName: string, delay: number=300) {
     const window = App.get_window(windowName);
     if (window === null)
         return
-    revealer.revealChild = false;
-    timeout(delay, () => window.hide());
+    if (window.is_visible()) {
+        (window.get_child() as Widget.Revealer).revealChild = false;
+        timeout(delay, () => window.hide());
+    }
+    else {
+        window.show();
+        (window.get_child() as Widget.Revealer).revealChild = true;
+    }
 }

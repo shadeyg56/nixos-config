@@ -50,14 +50,11 @@ export default function ControlCenter(monitor: Gdk.Monitor) {
         visible={false}
         application={App}
         >
-            <box css={"padding: 1px;"}>
-                <revealer
-                transitionType={Gtk.RevealerTransitionType.SLIDE_DOWN}
-                setup={revealerSetup}
-                >
-                    <MainContainer></MainContainer>
-                </revealer>
-            </box>
+            <revealer
+            transitionType={Gtk.RevealerTransitionType.SLIDE_DOWN}
+            >
+                <MainContainer></MainContainer>
+            </revealer>
         </window>
     )
 }
