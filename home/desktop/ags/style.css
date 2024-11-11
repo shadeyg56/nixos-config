@@ -58,7 +58,7 @@ label {
     margin: 3px 3px;
 }
 
-.controlCenterButton image {
+.controlCenterIcon {
     transition: -gtk-icon-transform 0.25s ease-in;
 }
 
