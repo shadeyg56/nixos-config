@@ -7,6 +7,7 @@ import BatteryWidget from "./modules/battery"
 import NetworkIndicator from "./modules/Network"
 import PowerButton from "./modules/PowerButton"
 import MediaIndicator from "./modules/Media"
+import ControlCenterButton from "./modules/ControlCenterButton"
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
     return <window
@@ -29,6 +30,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
                 <MediaIndicator/>
             </box>
             <box halign={Gtk.Align.END}>
+                <ControlCenterButton/>
                 <box className="rightBox">
                     <Volume/>
                     <BatteryWidget/>
