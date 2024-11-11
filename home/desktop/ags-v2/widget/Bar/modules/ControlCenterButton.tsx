@@ -13,6 +13,7 @@ export default function ControlCenterButton() {
 
     return (
         <button className="controlCenterButton"
+        onClick={() => App.toggle_window("controlcenter")}
         >
             <icon icon="pan-end-symbolic"
             setup={iconSetup}
