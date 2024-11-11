@@ -1,6 +1,6 @@
 import { App } from "astal/gtk3"
 import style from "./style.css"
-import Bar from "./widget/bar/Bar"
+import Bar from "./widget/Bar/Bar"
 
 App.start({
     css: style,
