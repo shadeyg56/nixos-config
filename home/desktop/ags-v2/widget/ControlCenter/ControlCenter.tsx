@@ -1,6 +1,7 @@
 import { Astal, Gtk, Widget, App, Gdk} from "astal/gtk3";
 import Header from "./modules/Header";
 import Volume from "./modules/Volume";
+import BrightnessWidget from "./modules/Brightness";
 
 function Row(toggles: Gtk.Widget[]=[], menus: Gtk.Widget[]=[]) {
     return (
@@ -34,6 +35,7 @@ function MainContainer() {
             vertical={true}
             >
                 <Volume/>
+                <BrightnessWidget/>
             </box>
         </box>
     )
