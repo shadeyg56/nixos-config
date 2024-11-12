@@ -1,5 +1,6 @@
 import { Astal, Gtk, Widget, App, Gdk} from "astal/gtk3";
 import Header from "./modules/Header";
+import Volume from "./modules/Volume";
 
 function Row(toggles: Gtk.Widget[]=[], menus: Gtk.Widget[]=[]) {
     return (
@@ -29,6 +30,11 @@ function MainContainer() {
         vertical={true}
         >
             <Header></Header>
+            <box className="sliders-box"
+            vertical={true}
+            >
+                <Volume/>
+            </box>
         </box>
     )
 }
