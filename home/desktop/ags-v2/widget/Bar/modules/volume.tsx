@@ -49,6 +49,7 @@ function PercentBar({revealChild}: RevealerProps) {
             hexpand={true}
             drawValue={false}
             value={bind(audio!.get_default_speaker()!, "volume")}
+            onDragged={(slider) => audio?.defaultSpeaker.set_volume(slider.get_value())}
             >
 
             </slider>
