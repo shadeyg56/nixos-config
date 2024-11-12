@@ -10,6 +10,7 @@
       battery
       network
       mpris
+      bluetooth
     ];
   };
 }

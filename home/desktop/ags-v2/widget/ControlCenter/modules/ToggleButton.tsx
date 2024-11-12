@@ -21,7 +21,7 @@ interface ArrowButtonProps {
     activate: () => void,
     deactivate: () => void,
     activateOnArrow?: boolean,
-    connection: Connection
+    condition: Binding<boolean>
 }
 
 interface MenuProps {
@@ -74,16 +74,8 @@ export function ArrowToggleButton({
     activate,
     deactivate,
     activateOnArrow = true,
-    connection: {service, signal, condition}
+    condition
 }: ArrowButtonProps) {
-
-    const testBind = bind(condition);
-
-    const setup = (box: Widget.Box) => {
-        service.connect(signal, () => {
-            box.toggleClassName("active", testBind.get());
-        })
-    }
 
     return (
         <box className={bind(condition).as((c) => {
@@ -94,7 +86,6 @@ export function ArrowToggleButton({
         })}> 
             <button
             onClick={() => {
-                console.log(condition.get())
                 if (condition.get()) {
                     deactivate();
                     if (opened.get() === name)
