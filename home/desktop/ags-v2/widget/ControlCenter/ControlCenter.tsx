@@ -3,6 +3,7 @@ import Header from "./modules/Header";
 import Volume from "./modules/Volume";
 import BrightnessWidget from "./modules/Brightness";
 import { NetworkToggle } from "./modules/Network";
+import BluetoothToggle from "./modules/Bluetooth";
 
 function Row(toggles: Gtk.Widget[]=[], menus: Gtk.Widget[]=[]) {
     return (
@@ -39,7 +40,7 @@ function MainContainer() {
                 <BrightnessWidget/>
             </box>
             {
-                Row([Homogeneous([Row([Homogeneous([NetworkToggle()])])])])
+                Row([Homogeneous([Row([Homogeneous([NetworkToggle(), BluetoothToggle()], true)])])])
             }
         </box>
     )

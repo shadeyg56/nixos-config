@@ -24,11 +24,7 @@ export function NetworkToggle() {
         name="network"
         icon={toggleIcon}
         label={label}
-        connection={{
-            service: network.wifi,
-            signal: "state-changed",
-            condition: bind(network.wifi, "enabled")
-        }}
+        condition={bind(network.wifi, "enabled")}
         deactivate={() => network.wifi.set_enabled(false)}
         activate={() => {
             network.wifi.set_enabled(true)
