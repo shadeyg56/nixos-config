@@ -8,7 +8,7 @@ function BatteryProgress() {
     const battery = Battery.get_default();
 
     const labelOverlay = <label
-        label={bind(battery, "percentage").as(p => `${p}%`)}
+        label={bind(battery, "percentage").as(p => `${p*100}%`)}
     />
 
     return (
@@ -24,7 +24,7 @@ function BatteryProgress() {
             <levelbar
             hexpand={true}
             vexpand={true}
-            value={bind(battery, "percentage").as((p) => p / 100)}
+            value={bind(battery, "percentage")}
             />
          </overlay>
         </box>
@@ -57,6 +57,7 @@ export default function Header() {
                         <icon icon="system-shutdown-symbolic"/>
                     </button>
                 </box>
+                <BatteryProgress/>
             </box>
         </box>
     )

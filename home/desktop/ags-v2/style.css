@@ -207,7 +207,7 @@ label {
     margin: unset;
 }
 
-.battery-progress trough {
+.battery-progress trough block.empty {
     background-color: @surface1;
     border-radius: 6px;
     min-height: 25px;
@@ -215,7 +215,7 @@ label {
 
 }
 
-.battery-progress trough progress {
+.battery-progress trough block.filled {
     background-color: @mauve;
     border-radius: 6px;
     min-height: 25px;
