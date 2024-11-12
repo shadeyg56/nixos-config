@@ -6,11 +6,15 @@ const battery = Battery.get_default();
 
 function BatteryIcon() {
 
+    const batteryBind = Variable.derive([bind(battery, "percentage"), bind(battery, "charging")
+    ], (percent, isCharging) => {
+        percent = Math.floor(percent * 10) * 10;
+        return `battery-level-${percent}${isCharging && percent !== 100 ? "-charging" : ""}-symbolic`})
+
     return (
         <icon 
         className="batIcon"
-        icon={bind(battery, "percentage").as((percent) =>
-            `battery-level-${Math.floor(percent * 100 / 10) * 10}${battery.get_charging() == true ? "-charging" : ""}-symbolic`)}
+        icon={batteryBind()}
         />
     )
 }
