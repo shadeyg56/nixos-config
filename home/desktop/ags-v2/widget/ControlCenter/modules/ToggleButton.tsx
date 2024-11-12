@@ -1,23 +1,23 @@
 import { bind, timeout, Variable } from "astal";
 import { Gtk, Widget } from "astal/gtk3";
-import { Connectable } from "astal/binding";
+import Binding, { Connectable } from "astal/binding";
 
 interface Connection {
     service: Connectable,
     signal: string,
-    condition: boolean
+    condition: Binding<boolean>
 }
 
 interface SimpleToggleProps {
-    icon: Widget.Icon
-    toggle: () => void
+    icon: Gtk.Widget,
+    toggle: () => void,
     connection: Connection
 }
 
 interface ArrowButtonProps {
     name: string
-    icon: Widget.Icon,
-    label: Widget.Label,
+    icon: Gtk.Widget,
+    label: Gtk.Widget,
     activate: () => void,
     deactivate: () => void,
     activateOnArrow?: boolean,
@@ -26,9 +26,9 @@ interface ArrowButtonProps {
 
 interface MenuProps {
     name: string,
-    icon: Widget.Icon
-    title: Widget.Label
-    content: Gtk.Widget[]
+    icon: Gtk.Widget,
+    title: Gtk.Widget,
+    content: Gtk.Widget[],
 }
 
 const opened = Variable("");
@@ -77,17 +77,25 @@ export function ArrowToggleButton({
     connection: {service, signal, condition}
 }: ArrowButtonProps) {
 
+    const testBind = bind(condition);
+
     const setup = (box: Widget.Box) => {
         service.connect(signal, () => {
-            box.toggleClassName("active", condition);
+            box.toggleClassName("active", testBind.get());
         })
     }
 
     return (
-        <box className="toggleButton" setup={setup}> 
+        <box className={bind(condition).as((c) => {
+            let name = "toggle-button";
+            if (c)
+                name += " active";
+            return name;
+        })}> 
             <button
             onClick={() => {
-                if (condition) {
+                console.log(condition.get())
+                if (condition.get()) {
                     deactivate();
                     if (opened.get() === name)
                         opened.set("");
@@ -136,7 +144,7 @@ export function SimpleToggleButton({
 
     const setup = (button: Widget.Button) => {
         service.connect(signal, () => {
-            button.toggleClassName("active", condition);
+            button.toggleClassName("active", condition.get());
         })
     }
 

@@ -2,6 +2,7 @@ import { Astal, Gtk, Widget, App, Gdk} from "astal/gtk3";
 import Header from "./modules/Header";
 import Volume from "./modules/Volume";
 import BrightnessWidget from "./modules/Brightness";
+import { NetworkToggle } from "./modules/Network";
 
 function Row(toggles: Gtk.Widget[]=[], menus: Gtk.Widget[]=[]) {
     return (
@@ -37,6 +38,9 @@ function MainContainer() {
                 <Volume/>
                 <BrightnessWidget/>
             </box>
+            {
+                Row([Homogeneous([Row([Homogeneous([NetworkToggle()])])])])
+            }
         </box>
     )
 }
