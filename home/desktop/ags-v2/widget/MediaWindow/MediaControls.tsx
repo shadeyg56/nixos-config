@@ -57,7 +57,7 @@ function Shuffle({player}: MediaWidgetProps) {
         )}
         >
             <icon
-            icon="media-skip-backward-symbolic"
+            icon="media-playlist-shuffle-symbolic"
             />
         </button>
     )
