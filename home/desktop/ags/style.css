@@ -10,6 +10,10 @@ label {
     font-size: 12pt;
 }
 
+revealer {
+    padding: 1px;
+}
+
 .bar {
     background-color: @base-transparent;
     border-radius: 24px;
