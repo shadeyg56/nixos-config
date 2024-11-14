@@ -3,6 +3,7 @@ import style from "./style.css"
 import Bar from "./widget/Bar/Bar"
 import ControlCenter from "./widget/ControlCenter/ControlCenter"
 import MediaWindow from "./widget/MediaWindow/Media"
+import CalendarWindow from "./widget/Calendar"
 
 App.start({
     css: style,
@@ -12,5 +13,6 @@ App.start({
         App.get_monitors().map(Bar)
         ControlCenter(mainMonitor)
         MediaWindow(mainMonitor)
+        CalendarWindow(mainMonitor)
     }
 })
