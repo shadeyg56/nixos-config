@@ -3,6 +3,7 @@ import { App, Astal, Gdk, Gtk, Widget } from "astal/gtk3";
 import { bind, Variable } from "astal";
 import Pango from "gi://Pango";
 import MediaControls from "./MediaControls";
+import { toggleWindow } from "../../utils";
 
 export interface MediaWidgetProps {
     player: Mpris.Player
@@ -123,7 +124,7 @@ export default function MediaWindow(gdkmonitor: Gdk.Monitor) {
         const w = widget.get_allocation().width - 15;
         const h = widget.get_allocation().height - 15;
         if (x <= 15 || x >= w || y <= 0 || y >= h) {
-            App.get_window("media")?.close();
+            toggleWindow("media")
         }
     }
 
