@@ -1,5 +1,5 @@
 import { bind } from "astal";
-import Brightness from "../../../services/Brightness";
+import Brightness from "../../../objects/Brightness";
 
 const brightness = Brightness.get_default();
 
