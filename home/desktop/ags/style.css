@@ -394,3 +394,31 @@ calendar:selected {
     border-radius: 12px;
     min-height: 125px;
 }
+
+.osd-container {
+	background-color: @base;
+	min-width: 50px;
+	min-height: 200px;
+	padding: 20px 0;
+	border-radius: 30px;
+}
+
+.osd-icon {
+	font-size: 25px;
+}
+
+.osd-slider {
+	margin-top: 10px
+}
+	
+.osd-slider trough {
+    background-color: black;
+    border-radius: 24px;
+    min-height: 200px;
+    min-width: 8px;
+}
+
+.osd-slider trough highlight {
+    background-color: @mauve;
+    border-radius: 24px;
+}

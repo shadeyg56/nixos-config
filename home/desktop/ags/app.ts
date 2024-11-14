@@ -4,6 +4,7 @@ import Bar from "./widget/Bar/Bar"
 import ControlCenter from "./widget/ControlCenter/ControlCenter"
 import MediaWindow from "./widget/MediaWindow/Media"
 import CalendarWindow from "./widget/Calendar"
+import OSDWindow from "./widget/OSD"
 
 App.start({
     css: style,
@@ -14,5 +15,6 @@ App.start({
         ControlCenter(mainMonitor)
         MediaWindow(mainMonitor)
         CalendarWindow(mainMonitor)
+        OSDWindow(mainMonitor)
     }
 })
