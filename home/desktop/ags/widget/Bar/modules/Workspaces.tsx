@@ -7,12 +7,13 @@ function Workspaces() {
     const hyprland = Hyprland.get_default();
 
     const getButtonClass = (i: number) => {
-        const className = Variable.derive([bind(hyprland, "focusedWorkspace"), bind(hyprland, "clients")], (currentWorkspace, clients) => {
+        const className = Variable.derive([bind(hyprland, "focusedWorkspace"), bind(hyprland, "workspaces")], (currentWorkspace, workspaces) => {
             if (currentWorkspace.id === i) {
                 return "focused";
             } else {
-                const workspaces = hyprland.get_workspaces().map((w) => w.id);
-                if (workspaces.includes(i)) {
+                const workspaceIDs = workspaces.map((w) => w.id);
+                console.log(workspaceIDs);
+                if (workspaceIDs.includes(i)) {
                     return "active"
                 }
                 else {
