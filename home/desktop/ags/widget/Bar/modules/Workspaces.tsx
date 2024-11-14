@@ -12,7 +12,6 @@ function Workspaces() {
                 return "focused";
             } else {
                 const workspaceIDs = workspaces.map((w) => w.id);
-                console.log(workspaceIDs);
                 if (workspaceIDs.includes(i)) {
                     return "active"
                 }
