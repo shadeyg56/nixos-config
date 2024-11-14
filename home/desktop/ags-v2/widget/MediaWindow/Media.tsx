@@ -1,6 +1,6 @@
 import Mpris from "gi://AstalMpris";
 import { App, Astal, Gdk, Gtk, Widget } from "astal/gtk3";
-import { bind, Variable } from "astal";
+import { bind } from "astal";
 import Pango from "gi://Pango";
 import MediaControls from "./MediaControls";
 import { toggleWindow } from "../../utils";
@@ -43,37 +43,21 @@ function CoverArt({player}: MediaWidgetProps) {
 
 function PositionSlider({player}: MediaWidgetProps) {
 
-    const isDragging = Variable(false);
-
-    const updatePosition = Variable.derive([bind(player, "position"), bind(player, "length")], 
-        (position, length) => {
-            if (isDragging.get())
-                return;
-            return position / length
-        }
-    )
+    const updatePosition = bind(player, "position").as(p => player.length > 0 ? p / player.length : 0)
 
     const lengthStr = (length: number) => {
         const min = Math.floor(length / 60);
         const sec = Math.floor(length % 60);
         const sec0 = sec < 10 ? '0' : '';
         return `${min}:${sec0}${sec}`;
-    } 
-
-    const setup = (slider: Widget.Slider) =>  {
-        slider.connect("drag-begin", () => isDragging.set(true));
-        slider.connect("drag-end", () => isDragging.set(false));
     }
 
     return (
         <box vertical={true}>
-            <slider className="position=slider"
+            <slider className="position-slider"
             drawValue={false}
             hexpand={true}
-            onDragged={(slider) => {
-                player.position = player.length*slider.value
-            }}
-            setup={setup}
+            onDragged={({value}) => {player.position = player.length*value}}
             value={(bind(updatePosition))}
             />
             <box className="position-label"
@@ -132,13 +116,13 @@ export default function MediaWindow(gdkmonitor: Gdk.Monitor) {
         <window
         name="media"
         anchor={Astal.WindowAnchor.TOP}
-        visible={true}
+        visible={false}
         gdkmonitor={gdkmonitor}
         application={App}
         namespace="media"
         >
             <revealer
-            revealChild={true}
+            revealChild={false}
             transitionType={Gtk.RevealerTransitionType.SLIDE_DOWN}
             >
                 <eventbox
