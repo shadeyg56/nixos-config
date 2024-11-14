@@ -84,7 +84,7 @@ function MediaContainer() {
         const player = players.find((p) => p.get_entry() === "spotify") ?? players[0];
         
         if (!player) {
-            return null;
+            return "";
         }
 
         return (
