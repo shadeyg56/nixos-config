@@ -58,7 +58,7 @@ label {
     margin: 3px 3px;
 }
 
-.controlCenterIcon {
+.controlCenterButton image {
     transition: -gtk-icon-transform 0.25s ease-in;
 }
 
@@ -207,7 +207,7 @@ label {
     margin: unset;
 }
 
-.battery-progress trough {
+.battery-progress trough block.empty {
     background-color: @surface1;
     border-radius: 6px;
     min-height: 25px;
@@ -215,7 +215,7 @@ label {
 
 }
 
-.battery-progress trough progress {
+.battery-progress trough block.filled {
     background-color: @mauve;
     border-radius: 6px;
     min-height: 25px;
@@ -377,7 +377,7 @@ calendar:selected {
 }
 
 .date-and-time {
-	margin: 30px 30px 0;
+	margin: 15px 30px;
 }
 
 .big-clock {
