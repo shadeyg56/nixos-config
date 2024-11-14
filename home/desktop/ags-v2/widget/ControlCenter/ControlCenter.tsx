@@ -59,6 +59,7 @@ export default function ControlCenter(monitor: Gdk.Monitor) {
     return (
         <window
         name="controlcenter"
+        namespace="controlcenter"
         gdkmonitor={monitor}
         anchor={ Astal.WindowAnchor.TOP | Astal.WindowAnchor.RIGHT}
         visible={false}
