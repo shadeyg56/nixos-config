@@ -135,6 +135,7 @@ export default function MediaWindow(gdkmonitor: Gdk.Monitor) {
         visible={true}
         gdkmonitor={gdkmonitor}
         application={App}
+        namespace="media"
         >
             <revealer
             revealChild={true}

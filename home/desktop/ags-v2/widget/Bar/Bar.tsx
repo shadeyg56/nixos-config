@@ -11,6 +11,8 @@ import ControlCenterButton from "./modules/ControlCenterButton"
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
     return <window
+        name="bar"
+        namespace="bar0"
         className="bar"
         gdkmonitor={gdkmonitor}
         exclusivity={Astal.Exclusivity.EXCLUSIVE}
