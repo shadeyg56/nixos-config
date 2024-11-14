@@ -1,7 +1,8 @@
 import Mpris from "gi://AstalMpris";
 import { bind, Variable } from "astal";
-import { Widget, Gtk } from "astal/gtk3";
+import { Widget, Gtk, App } from "astal/gtk3";
 import Pango from "gi://Pango";
+import { toggleWindow } from "../../../utils";
 
 const media = Mpris.get_default();
 
@@ -57,7 +58,18 @@ function NowPlaying(player: Mpris.Player) {
 export default function MediaIndicator() {
 
     return (
-        <eventbox>
+        <eventbox
+        onHover={() => toggleWindow("media")}
+        onHoverLost={(widget, event) => {
+            const x = event.x;
+            const y = event.y;
+            const w = widget.get_allocation().width;
+            const h = widget.get_allocation().height;
+            if ((x < 0 && y < h/2)|| (x > w && y < h/2) || y < 5) {
+                toggleWindow("media")
+            }
+        }}
+        >
             <box>
                 {bind(media, "players").as((players) => {
                     const player = players.find((p) => p.get_entry() === "spotify") ?? players[0];
