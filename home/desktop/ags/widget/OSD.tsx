@@ -51,6 +51,7 @@ function OSDItem({name, icon, property, callback}: OSDItemProps) {
             <icon className="osd-icon" icon={icon}/>
             <slider className="osd-slider"
             vertical={true}
+            inverted={true}
             value={bind(property)}
             onDragged={callback}
             hexpand={true}
