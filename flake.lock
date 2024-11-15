@@ -511,11 +511,11 @@
         "nur": "nur"
       },
       "locked": {
-        "lastModified": 1731575842,
-        "narHash": "sha256-eKVCGMBtzG866IKz/HXtpuug6IRo+jI1EXYpGxjTDKs=",
+        "lastModified": 1731504985,
+        "narHash": "sha256-iiQuPiqIV9WxBs8W2vETVq4SGEAn+OM9TIpPDkR9vaQ=",
         "owner": "adriankarlen",
         "repo": "textfox",
-        "rev": "9a3b37962600961179a0876c36ebc0e40bb4b897",
+        "rev": "337c03eb82f4ccc17fd23382aab326372bdc8ca6",
         "type": "github"
       },
       "original": {
