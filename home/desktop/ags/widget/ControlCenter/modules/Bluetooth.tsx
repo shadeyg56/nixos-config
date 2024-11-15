@@ -1,5 +1,6 @@
-import { ArrowToggleButton } from "./ToggleButton";
+import { ArrowToggleButton, Menu } from "./ToggleButton";
 import { bind, Variable } from "astal";
+import { Gtk } from "astal/gtk3";
 import Bluetooth from "gi://AstalBluetooth";
 import Pango from "gi://Pango";
 
@@ -43,5 +44,53 @@ export default function BluetoothToggle() {
         deactivate={() => bluetooth.get_adapter()?.set_powered(false)}
         condition={bind(bluetooth, "isPowered")}
         />
+    )
+}
+
+export function BluetoothMenu() {
+
+    const getDeviceIcon = (device: Bluetooth.Device) => {
+        if (device.connected) {
+            return "spinner-symbolic"
+        } else if (device.connecting) {
+            return "spinner-symbolic"
+        }
+        return "";
+    }
+
+    return (
+        <Menu name="bluetooth"
+            title="Bluetooth Devices"
+        >
+            <box vertical={true}>
+                    {bind(Variable.derive([bind(bluetooth, "devices")], ((devices) => devices.map((device) =>
+                        <button className="menu-item"
+                        onClick={() => {
+                            if (!bluetooth.isPowered)
+                                bluetooth.get_adapter()?.set_powered(true);
+                            if (device.connected)
+                                device.disconnect_device(() => {});
+                            else
+                                device.connect_device(() => {});
+                        }}
+                        >
+                            <box>
+                                <icon icon={bind(Variable.derive([bind(device, "connected"), bind(device, "connecting")], (connected, connecting) => 
+                                    connected ? "object-select-symbolic" 
+                                    : (connecting ? "content-loading-symbolic" : "")
+                                ))}
+                                css={"font-size: 20px;"}
+                                />
+                                <label label={device.alias}
+                                maxWidthChars={25}
+                                ellipsize={Pango.EllipsizeMode.END
+                                }
+                                />
+                            </box>
+                        </button>
+                    ))))}
+  
+            </box>
+        </Menu>
     )
 }

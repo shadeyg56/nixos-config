@@ -44,7 +44,7 @@ export function WifiMenu() {
     )
 
     return (
-        <Menu name="wifi"
+        <Menu name="network"
             title="Wifi Network"
         >
             <box vertical={true}>
@@ -55,8 +55,6 @@ export function WifiMenu() {
                                 execAsync(`nmcli c down ${ap.ssid}`)
                             else
                                 execAsync(`nmcli d wifi connect ${ap.ssid}`)
-
-
                         }}
                         >
                             <box>

@@ -4,7 +4,7 @@ import Header from "./modules/Header";
 import Volume from "./modules/Volume";
 import BrightnessWidget from "./modules/Brightness";
 import { NetworkToggle, WifiMenu } from "./modules/Network";
-import BluetoothToggle from "./modules/Bluetooth";
+import BluetoothToggle, { BluetoothMenu } from "./modules/Bluetooth";
 import Governors from "./modules/Governors";
 
 function Row(toggles: Gtk.Widget[]=[], menus: Gtk.Widget[]=[]) {
@@ -71,6 +71,7 @@ export default function ControlCenter(monitor: Gdk.Monitor) {
                 >
                     <MainContainer></MainContainer>
                     <WifiMenu/>
+                    <BluetoothMenu/>
 
                 </stack>
             </revealer>

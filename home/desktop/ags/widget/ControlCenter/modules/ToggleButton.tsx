@@ -96,7 +96,7 @@ export function ArrowToggleButton({
                     }
                 }
                 else if (event.button === Astal.MouseButton.SECONDARY) {
-                    controlCenterStackWidget.set("wifi")
+                    controlCenterStackWidget.set(name)
                 }
 
             }}
