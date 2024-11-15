@@ -1,8 +1,9 @@
 import { Astal, Gtk, Widget, App, Gdk} from "astal/gtk3";
+import { bind, Variable } from "astal";
 import Header from "./modules/Header";
 import Volume from "./modules/Volume";
 import BrightnessWidget from "./modules/Brightness";
-import { NetworkToggle } from "./modules/Network";
+import { NetworkToggle, WifiMenu } from "./modules/Network";
 import BluetoothToggle from "./modules/Bluetooth";
 import Governors from "./modules/Governors";
 
@@ -32,6 +33,7 @@ function MainContainer() {
     return (
         <box className="controlcenter"
         vertical={true}
+        name="controlcenter"
         >
             <Header></Header>
             <box className="sliders-box"
@@ -47,14 +49,9 @@ function MainContainer() {
     )
 }
 
-export default function ControlCenter(monitor: Gdk.Monitor) {
+export const controlCenterStackWidget = Variable("");
 
-    const revealerSetup = (revealer: Widget.Revealer) => {
-        App.connect("window-toggled", (_, window) => {
-            if (window.name === "controlcenter")
-                revealer.revealChild = window.get_visible();
-        })
-    }
+export default function ControlCenter(monitor: Gdk.Monitor) {
 
     return (
         <window
@@ -68,7 +65,14 @@ export default function ControlCenter(monitor: Gdk.Monitor) {
             <revealer
             transitionType={Gtk.RevealerTransitionType.SLIDE_DOWN}
             >
-                <MainContainer></MainContainer>
+
+                <stack shown={controlCenterStackWidget()}
+                transitionType={Gtk.StackTransitionType.SLIDE_LEFT_RIGHT}
+                >
+                    <MainContainer></MainContainer>
+                    <WifiMenu/>
+
+                </stack>
             </revealer>
         </window>
     )

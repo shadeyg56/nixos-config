@@ -144,7 +144,7 @@ revealer {
 }
 
 
-.controlcenter {
+.controlcenter, .menu {
     color: #ffffff;
     background-color: @base-transparent;
     border-radius: 12px;
@@ -421,4 +421,32 @@ calendar:selected {
 .osd-slider trough highlight {
     background-color: @mauve;
     border-radius: 24px;
+}
+
+.menu-back {
+	background-color: unset;
+	font-size: 25px;
+    margin: 6px
+}
+
+.menu-title {
+	background: unset;
+	font-size: 20px;
+    padding: 6px 6px;
+    margin: -15px 0  5px 35px;
+}
+
+.menu-item {
+	background-color: @crust;
+	border-radius: 20px;
+	margin: 5px;
+    padding-left: 10px;
+    padding-right: 15px;
+}
+
+.menu-item label {
+	background: unset;
+    padding: 6px 6px;
+    margin: 5px 5px;
+    font-size: 12pt
 }

@@ -2,6 +2,7 @@ import Battery from "gi://AstalBattery"
 import { bind, execAsync, Variable } from "astal";
 import { Gtk } from "astal/gtk3"
 import { uptime } from "../../../utils";
+import { Scrollable } from "../../../../../../../.local/share/ags/gtk3/widget";
 
 function BatteryProgress() {
 

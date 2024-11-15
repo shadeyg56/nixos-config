@@ -1,6 +1,6 @@
-import { ArrowToggleButton } from "./ToggleButton";
-import { Widget } from "astal/gtk3";
-import { bind, Variable } from "astal";
+import { ArrowToggleButton, Menu } from "./ToggleButton";
+import { Gtk } from "astal/gtk3";
+import { bind, execAsync, Variable } from "astal";
 import Network from "gi://AstalNetwork";
 import Pango from "gi://Pango";
 
@@ -31,5 +31,56 @@ export function NetworkToggle() {
             network.wifi.scan();
         }}
         />
+    )
+}
+
+export function WifiMenu() {
+
+    const accessPoints = bind(network.wifi, "accessPoints").as((aps) => 
+        aps.filter((ap, index, array) => 
+            array.findIndex(obj => obj.ssid === ap.ssid) === index
+            && ap.ssid !== null
+        )
+    )
+
+    return (
+        <Menu name="wifi"
+            title="Wifi Network"
+        >
+            <box vertical={true}>
+                    {bind(Variable.derive([bind(accessPoints), bind(network.wifi, "activeAccessPoint")], ((aps, active) => aps.map((ap) =>
+                        <button className="menu-item"
+                        onClick={() => {
+                            if (active !== null && active.ssid === ap.ssid)
+                                execAsync(`nmcli c down ${ap.ssid}`)
+                            else
+                                execAsync(`nmcli d wifi connect ${ap.ssid}`)
+
+
+                        }}
+                        >
+                            <box>
+                                {active != null && active.ssid === ap.ssid
+                                ? <icon icon={"object-select-symbolic"}
+                                    css={"font-size: 20px;"}
+                                    />
+                                : ""
+                                }
+                                <label label={ap.ssid}
+                                maxWidthChars={25}
+                                ellipsize={Pango.EllipsizeMode.END
+                                }
+                                />
+                                <icon icon={ap.iconName}
+                                halign={Gtk.Align.END}
+                                hexpand={true}
+                                css={"font-size: 20px;"}
+                                />
+                            </box>
+                        </button>
+                    ))))}
+  
+            </box>
+        </Menu>
     )
 }

@@ -1,6 +1,7 @@
 import { bind, timeout, Variable } from "astal";
-import { Gtk, Widget } from "astal/gtk3";
+import { Gtk, Widget, Astal } from "astal/gtk3";
 import Binding, { Connectable } from "astal/binding";
+import { controlCenterStackWidget } from "../ControlCenter";
 
 interface Connection {
     service: Connectable,
@@ -26,9 +27,8 @@ interface ArrowButtonProps {
 
 interface MenuProps {
     name: string,
-    icon: Gtk.Widget,
-    title: Gtk.Widget,
-    content: Gtk.Widget[],
+    title: string,
+    child?: Gtk.Widget | Binding<Gtk.Widget>
 }
 
 const opened = Variable("");
@@ -85,14 +85,20 @@ export function ArrowToggleButton({
             return name;
         })}> 
             <button
-            onClick={() => {
-                if (condition.get()) {
-                    deactivate();
-                    if (opened.get() === name)
-                        opened.set("");
-                } else {
-                    activate();
+            onClick={(_, event) => {
+                if (event.button === Astal.MouseButton.PRIMARY) {
+                    if (condition.get()) {
+                        deactivate();
+                        if (opened.get() === name)
+                            opened.set("");
+                    } else {
+                        activate();
+                    }
                 }
+                else if (event.button === Astal.MouseButton.SECONDARY) {
+                    controlCenterStackWidget.set("wifi")
+                }
+
             }}
             >
                 <box className="label-box-horizontal"
@@ -106,22 +112,42 @@ export function ArrowToggleButton({
     )
 }
 
-export function Menu({name, icon, title, content}: MenuProps) {
+// export function Menu({name, icon, title, content}: MenuProps) {
+//     return (
+//         <revealer
+//         transitionType={Gtk.RevealerTransitionType.SLIDE_DOWN}
+//         revealChild={opened().as(v => v === name)}
+//         >
+//             <box className={`menu ${name}`}
+//             vertical={true}
+//             >
+//                 <box className="title horizontal">
+//                     {icon}
+//                     {title}
+//                 </box>
+//                 {...content}
+//             </box>
+//         </revealer>
+//     )
+// }
+
+export function Menu({name, title, child}: MenuProps) {
     return (
-        <revealer
-        transitionType={Gtk.RevealerTransitionType.SLIDE_DOWN}
-        revealChild={opened().as(v => v === name)}
-        >
-            <box className={`menu ${name}`}
-            vertical={true}
-            >
-                <box className="title horizontal">
-                    {icon}
-                    {title}
-                </box>
-                {...content}
-            </box>
-        </revealer>
+        <box name={name} vertical={true} className="menu">
+                <button
+                onClick={() => controlCenterStackWidget.set("controlcenter")}
+                halign={Gtk.Align.START}
+                className="menu-back"
+                >
+                    <icon icon="go-previous-symbolic"/>
+                </button>
+                <label className="menu-title" label={title}
+                halign={Gtk.Align.START}
+                />
+                <scrollable vexpand={true}>
+                    {child}
+                </scrollable>
+        </box>
     )
 }
 
