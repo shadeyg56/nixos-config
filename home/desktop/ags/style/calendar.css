@@ -1,0 +1,35 @@
+@import url("./theme.css");
+
+.calendar-container{
+    background-color: @base;
+
+}
+
+calendar{
+	background: @crust;
+	font-family: "Ubuntu Nerd Font";
+	font-weight: bold;
+	font-size: 15px;
+	padding: 5px;
+    border-radius: 12px;
+
+}
+
+calendar:selected {
+	background-color: @mauve;
+	border-radius: 50px;
+
+}
+
+.calendar-container {
+	padding: 10px;
+    border-radius: 12px;
+}
+
+.date-and-time {
+	margin: 15px 30px;
+}
+
+.big-clock {
+	font-size: 50px;
+}

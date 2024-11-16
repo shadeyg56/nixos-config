@@ -1,5 +1,5 @@
 import { App } from "astal/gtk3"
-import style from "./style.css"
+import style from "./style/main.css"
 import Bar from "./widget/Bar/Bar"
 import ControlCenter from "./widget/ControlCenter/ControlCenter"
 import MediaWindow from "./widget/MediaWindow/Media"

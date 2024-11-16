@@ -1,0 +1,19 @@
+@import url("./style/bar.css");
+@import url("./style/calendar.css");
+@import url("./style/controlcenter.css");
+@import url("./style/osd.css");
+@import url("./style/mediawindow.css");
+
+* {
+    all: unset;
+}
+
+label {
+    font-weight: bold;
+    font-family: "Ubuntu Nerd Font";
+    font-size: 12pt;
+}
+
+revealer {
+    padding: 1px;
+}
