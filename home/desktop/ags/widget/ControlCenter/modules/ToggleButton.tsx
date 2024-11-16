@@ -1,18 +1,12 @@
 import { bind, timeout, Variable } from "astal";
 import { Gtk, Widget, Astal } from "astal/gtk3";
-import Binding, { Connectable } from "astal/binding";
+import Binding from "astal/binding";
 import { controlCenterStackWidget } from "../ControlCenter";
 
-interface Connection {
-    service: Connectable,
-    signal: string,
-    condition: Binding<boolean>
-}
-
 interface SimpleToggleProps {
-    icon: Gtk.Widget,
+    child?: Gtk.Widget,
     toggle: () => void,
-    connection: Connection
+    condition: Binding<boolean>,
 }
 
 interface ArrowButtonProps {
@@ -112,25 +106,6 @@ export function ArrowToggleButton({
     )
 }
 
-// export function Menu({name, icon, title, content}: MenuProps) {
-//     return (
-//         <revealer
-//         transitionType={Gtk.RevealerTransitionType.SLIDE_DOWN}
-//         revealChild={opened().as(v => v === name)}
-//         >
-//             <box className={`menu ${name}`}
-//             vertical={true}
-//             >
-//                 <box className="title horizontal">
-//                     {icon}
-//                     {title}
-//                 </box>
-//                 {...content}
-//             </box>
-//         </revealer>
-//     )
-// }
-
 export function Menu({name, title, child}: MenuProps) {
     return (
         <box name={name} vertical={true} className="menu">
@@ -154,23 +129,24 @@ export function Menu({name, title, child}: MenuProps) {
 
 
 export function SimpleToggleButton({
-    icon,
+    child,
     toggle,
-    connection: {service, signal, condition}
+    condition,
 }: SimpleToggleProps) {
 
-    const setup = (button: Widget.Button) => {
-        service.connect(signal, () => {
-            button.toggleClassName("active", condition.get());
-        })
-    }
 
     return (
-        <button className="simple-toggle"
+        <button className={bind(condition).as((c) => {
+            let name = "simple-toggle";
+            if (c)
+                name += " active";
+            return name;
+        })}
         onClick={toggle}
-        setup={setup}
+        valign={Gtk.Align.CENTER}
+        halign={Gtk.Align.CENTER}
         >
-            {icon}
+            {child}
         </button>
     )
 }

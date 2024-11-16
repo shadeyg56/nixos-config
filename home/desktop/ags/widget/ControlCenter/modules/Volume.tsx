@@ -1,6 +1,7 @@
 import Wp from "gi://AstalWp";
 import { bind } from "astal";
 import { Widget } from "astal/gtk3";
+import { controlCenterStackWidget } from "../ControlCenter";
 
 const audio = Wp.get_default()!.audio;
 
@@ -51,6 +52,7 @@ export default function Volume() {
         <box>
             <button
             tooltipText={bind(audio.get_default_speaker()!, "volume").as(v => `Volume: ${Math.floor(v * 100)}%`)}
+            onClick={() => controlCenterStackWidget.set("audio")}
             >
                 <VolumeIcon/>
             </button>

@@ -450,3 +450,8 @@ calendar:selected {
     margin: 5px 5px;
     font-size: 12pt
 }
+
+.simple-toggle {
+	font-size: 20px;
+	margin-right: -5px;
+}
