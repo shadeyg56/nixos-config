@@ -153,6 +153,11 @@
             main."monitor.libcamera" = "disabled";
           };
         };
+        bluetoothEnchancements = {
+          "wireplumber.settings" = {
+            "bluetooth.autoswitch-to-headset-profile" = false;
+          };
+        };
       };
     };
   };
