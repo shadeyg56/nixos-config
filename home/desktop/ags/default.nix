@@ -11,6 +11,7 @@
       network
       mpris
       bluetooth
+      cava
     ];
   };
 }

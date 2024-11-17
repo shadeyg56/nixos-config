@@ -8,6 +8,7 @@ import NetworkIndicator from "./modules/Network"
 import PowerButton from "./modules/PowerButton"
 import MediaIndicator from "./modules/Media"
 import ControlCenterButton from "./modules/ControlCenterButton"
+import Cava from "./modules/Cava"
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
     return <window
@@ -30,6 +31,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
             <box>
                 <Clock/>
                 <MediaIndicator/>
+                <Cava/>
             </box>
             <box halign={Gtk.Align.END}>
                 <ControlCenterButton/>

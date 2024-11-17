@@ -126,3 +126,8 @@
 	font-size: 1px;
     transition: min-width 0.25s linear;
 }
+
+.cava {
+    min-width: 100px;
+    margin-left: 10px;
+}
