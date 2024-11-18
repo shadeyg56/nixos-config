@@ -14,15 +14,16 @@ export default function BluetoothToggle() {
         : "bluetooth-disabled-symbolic"
     )}/>
 
-    const labelBind = Variable.derive([bind(bluetooth, "isPowered"), bind(bluetooth, "devices")], 
-    (enabled, devices) => {
+    const labelBind = Variable.derive([bind(bluetooth, "isPowered"), bind(bluetooth, "isConnected")], 
+    (enabled, connected) => {
         if (!enabled)
             return "Disabled";
 
-        const connectedDevices = devices.filter((device) => device.get_connected());
-
-        if (connectedDevices.length === 0)
+        if (!connected) {
             return "Not Connected";
+        }
+
+        const connectedDevices = bluetooth.get_devices().filter((device) => device.get_connected());
 
         if (connectedDevices.length === 1)
             return connectedDevices[0].alias;
