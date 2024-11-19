@@ -3,7 +3,7 @@
   inputs = {
 
     # Official NixOS package source, using nixos-unstable branch here
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
+    nixpkgs.url = "github:NixOS/nixpkgs/18979df9f0be9d69f0e4d35059914c1a868c79b8";
 
     # home-manager, used for managing user configuration
     home-manager = {
@@ -11,7 +11,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland = {
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
