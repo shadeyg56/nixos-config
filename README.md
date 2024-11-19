@@ -27,7 +27,7 @@ Basically Nix can take a while to learn and setup, but once you figure it out yo
 
 ## Features
 * window manager - [hyprland](https://hyprland.org/)
-* bar - [waybar](https://github.com/Alexays/Waybar)
+* widget suite (my own [Astal](https://github.com/aylur/astal) app) - [saturn](https://github.com/shadeyg56/saturn)
 * theme - [catppuccin](https://github.com/catppuccin/catppuccin) macchiato for basically everything
 * terminal - [kitty](https://github.com/kovidgoyal/kitty)
 * shell - [zsh](https://www.zsh.org/) with [powerlevel10k](https://github.com/romkatv/powerlevel10k)
