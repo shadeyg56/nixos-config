@@ -8,6 +8,5 @@
 
   imports = [
     ./hypr
-    ./ags
   ];
 }

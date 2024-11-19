@@ -31,8 +31,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ags = {
-      url = "github:Aylur/ags";
+    saturn = {
+      url = "github:shadeyg56/saturn";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

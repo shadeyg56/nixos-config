@@ -64,6 +64,7 @@
     (callPackage ../pkgs/marie-sim.nix { })
 
     # system
+    inputs.saturn.packages.${pkgs.system}.default
     udev
     podman
     distrobox
@@ -87,7 +88,6 @@
 
   imports = [
     inputs.hyprland.homeManagerModules.default
-    inputs.ags.homeManagerModules.default
     ./desktop
     ./terminal
     ./programs
