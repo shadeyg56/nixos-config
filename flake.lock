@@ -14,7 +14,6 @@
         "owner": "aylur",
         "repo": "ags",
         "rev": "12e0bfefd2051c43d7450123fcb095f655b891e8",
-        "rev": "12e0bfefd2051c43d7450123fcb095f655b891e8",
         "type": "github"
       },
       "original": {
@@ -67,11 +66,8 @@
       "locked": {
         "lastModified": 1731952585,
         "narHash": "sha256-Sh1E7sJd8JJM3PCU1ZOei/QWz97OLCENIi2rTRoaniw=",
-        "lastModified": 1731952585,
-        "narHash": "sha256-Sh1E7sJd8JJM3PCU1ZOei/QWz97OLCENIi2rTRoaniw=",
         "owner": "aylur",
         "repo": "astal",
-        "rev": "664c7a4ddfcf48c6e8accd3c33bb94424b0e8609",
         "rev": "664c7a4ddfcf48c6e8accd3c33bb94424b0e8609",
         "type": "github"
       },
@@ -447,11 +443,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1731980465,
-        "narHash": "sha256-T/JssuVwIVItNm7jQrpcuU9nMCMn741PWbgeuXAWOkc=",
+        "lastModified": 1731988506,
+        "narHash": "sha256-wgXJyljrgEZgz+JFAKM251WGIOOkJ6vzaUl5mMbiDd4=",
         "owner": "shadeyg56",
         "repo": "saturn",
-        "rev": "9998c049cbd4c7d87a5f0f1d45814d90f38b0efd",
+        "rev": "e5fb2db777fbea6c30c1dfc26876e9a9468cf30e",
         "type": "github"
       },
       "original": {
