@@ -173,11 +173,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1731968878,
-        "narHash": "sha256-+hTCwETOE9N8voTAaF+IzdUZz28Ws3LDpH90FWADrEE=",
+        "lastModified": 1732025103,
+        "narHash": "sha256-qjEI64RKvDxRyEarY0jTzrZMa8ebezh2DEZmJJrpVdo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "a42fa14b53ceab66274a21da480c9f8e06204173",
+        "rev": "a46e702093a5c46e192243edbd977d5749e7f294",
         "type": "github"
       },
       "original": {
@@ -232,11 +232,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1731978971,
-        "narHash": "sha256-P9DXCxDvjFt4aMc2x67hvSpNvSqX18X840w6cEVZXoo=",
+        "lastModified": 1732054045,
+        "narHash": "sha256-/2SKmO6AWDqvhN8A8VxA244Au3LwFu7wOXzudWQXr9s=",
         "ref": "refs/heads/main",
-        "rev": "67cee430061626ccd73dc6d30eed9db289053608",
-        "revCount": 5480,
+        "rev": "c4eda46d0ef022a17348623beec4154ba34af691",
+        "revCount": 5482,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -443,11 +443,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1731988506,
-        "narHash": "sha256-wgXJyljrgEZgz+JFAKM251WGIOOkJ6vzaUl5mMbiDd4=",
+        "lastModified": 1731990073,
+        "narHash": "sha256-nWzTyBVveZD83QwBd+BmjwGKcmLIpJx2CQ2CWOjdk4g=",
         "owner": "shadeyg56",
         "repo": "saturn",
-        "rev": "e5fb2db777fbea6c30c1dfc26876e9a9468cf30e",
+        "rev": "b58ae16b38f10576c314990a1ab727388e534a54",
         "type": "github"
       },
       "original": {
@@ -484,11 +484,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1731816930,
-        "narHash": "sha256-PitzPtc36GdVBdxpU2A61pbJcM/KJlsEkFRagzkW3Yc=",
+        "lastModified": 1731989835,
+        "narHash": "sha256-Y1S+x2jWLQB9hn4aG04/213ZlTp+30itKe9KcSsrFgw=",
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "f3d75d6a7ca1fdd7b3943a8b257c413c7e3b307a",
+        "rev": "aac6c81489f61034916efa4ed62840dc1d72c413",
         "type": "github"
       },
       "original": {
@@ -520,11 +520,11 @@
         "nur": "nur"
       },
       "locked": {
-        "lastModified": 1731575842,
-        "narHash": "sha256-eKVCGMBtzG866IKz/HXtpuug6IRo+jI1EXYpGxjTDKs=",
+        "lastModified": 1731850027,
+        "narHash": "sha256-mzGGJEAhFSlUimPWa+OrQcf4frnEMrBlmgzDsc9hivw=",
         "owner": "adriankarlen",
         "repo": "textfox",
-        "rev": "9a3b37962600961179a0876c36ebc0e40bb4b897",
+        "rev": "fd5d96d028c8157ef6b42266097460b67a199472",
         "type": "github"
       },
       "original": {
