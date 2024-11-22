@@ -2,18 +2,21 @@
   "nodes": {
     "ags": {
       "inputs": {
-        "astal": "astal",
+        "astal": [
+          "saturn",
+          "astal"
+        ],
         "nixpkgs": [
           "saturn",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1731966249,
-        "narHash": "sha256-9hDeMy6S2q1wWBFGiJic5yUms19zW8LhAX9MlCtuN6k=",
+        "lastModified": 1732307740,
+        "narHash": "sha256-ZDsYdZOtg5qkK/wfLLB83B3SI+fE32S+/6Ey0ggHODM=",
         "owner": "aylur",
         "repo": "ags",
-        "rev": "12e0bfefd2051c43d7450123fcb095f655b891e8",
+        "rev": "81159966eb8b39b66c3efc133982fd76920c9605",
         "type": "github"
       },
       "original": {
@@ -59,16 +62,15 @@
       "inputs": {
         "nixpkgs": [
           "saturn",
-          "ags",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1731952585,
-        "narHash": "sha256-Sh1E7sJd8JJM3PCU1ZOei/QWz97OLCENIi2rTRoaniw=",
+        "lastModified": 1732306234,
+        "narHash": "sha256-F77jYf+ggs44paTRJy12orEC1vfpXqIppnBiwcFMBD4=",
         "owner": "aylur",
         "repo": "astal",
-        "rev": "664c7a4ddfcf48c6e8accd3c33bb94424b0e8609",
+        "rev": "4b87bb6c86b345aea63793a2f88ebdaec88c0d52",
         "type": "github"
       },
       "original": {
@@ -438,16 +440,17 @@
     "saturn": {
       "inputs": {
         "ags": "ags",
+        "astal": "astal",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1731990073,
-        "narHash": "sha256-nWzTyBVveZD83QwBd+BmjwGKcmLIpJx2CQ2CWOjdk4g=",
+        "lastModified": 1732309384,
+        "narHash": "sha256-vtD6PQwM/OGhjV6j+HMHf1ob1540Qr567cB8TGIlXQk=",
         "owner": "shadeyg56",
         "repo": "saturn",
-        "rev": "b58ae16b38f10576c314990a1ab727388e534a54",
+        "rev": "9970e31c251b36ff87733692145c2b5d815aaa50",
         "type": "github"
       },
       "original": {
