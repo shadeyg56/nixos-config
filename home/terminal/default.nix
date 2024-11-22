@@ -5,7 +5,7 @@
     ./kitty
     ./btop
     ./cava
-    ./neofetch
+    ./fastfetch
     ./nvim
     ./direnv.nix
   ];

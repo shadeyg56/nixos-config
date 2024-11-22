@@ -14,7 +14,7 @@
   home.packages = with pkgs; [
 
     # terminal
-    neofetch
+    fastfetch
     kitty
     zsh
     cava

@@ -25,7 +25,7 @@
       enable_health_mode = "sudo modprobe -r acer-wmi-battery && sudo modprobe acer-wmi-battery enable_health_mode=1";
       health_mode = "cat /sys/bus/wmi/drivers/acer-wmi-battery/health_mode";
     };
-    initExtra = "neofetch";
+    initExtra = "fastfetch";
   };
 
   # themes, and plugins
