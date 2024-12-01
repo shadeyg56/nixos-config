@@ -3,7 +3,8 @@
   inputs = {
 
     # Official NixOS package source, using nixos-unstable branch here
-    nixpkgs.url = "github:NixOS/nixpkgs/18979df9f0be9d69f0e4d35059914c1a868c79b8";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
+    nixpkgs-staging.url = "github:NixOS/nixpkgs/staging";
 
     # home-manager, used for managing user configuration
     home-manager = {
@@ -68,6 +69,7 @@
           };
           modules = [
             ./hosts/laptop/configuration.nix
+            (import ./overlays)
             ./modules/power-switcher.nix
             hyprland.nixosModules.default
             home-manager.nixosModules.home-manager
