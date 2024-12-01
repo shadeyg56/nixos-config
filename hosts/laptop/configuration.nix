@@ -49,13 +49,9 @@
   environment.variables.QT_QPA_PLATFORMTHEME = lib.mkForce "qt5ct";
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override {
-      fonts = [
-        "JetBrainsMono"
-        "Ubuntu"
-        "UbuntuMono"
-      ];
-    })
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.ubuntu-mono
+    nerd-fonts.ubuntu
     font-awesome
     noto-fonts
     material-design-icons
