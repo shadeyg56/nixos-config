@@ -17,7 +17,7 @@
     fastfetch
     kitty
     zsh
-    cava
+    inputs.nixpkgs-pinned.legacyPackages.${pkgs.system}.cava
     btop
     htop
     dialog
