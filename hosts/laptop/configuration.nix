@@ -205,6 +205,7 @@
       turbo = "auto";
     };
   };
+  services.power-profiles-daemon.enable = false;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
