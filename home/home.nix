@@ -60,6 +60,7 @@
     icon-library
     ventoy-full
     imagemagick
+    obsidian
     (callPackage ../pkgs/adios.nix { })
     (callPackage ../pkgs/marie-sim.nix { })
 
