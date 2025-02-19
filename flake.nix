@@ -45,6 +45,20 @@
     };
 
   };
+
+  nixConfig = {
+    extra-substituters = [
+      "https://hyprland.cachix.org"
+      "https://shades-nixos-config.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "shades-nixos-config.cachix.org-1:MOIJALAf3hYttmgh8QA6NAN6kwXFLg0THonAkGsfbGs="
+    ];
+  };
+
+
+
   outputs =
     {
       self,
@@ -85,6 +99,28 @@
             catppuccin.nixosModules.catppuccin
           ];
         };
+        "desktop" = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            ./hosts/desktop/configuration.nix
+            hyprland.nixosModules.default
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+              };
+              home-manager.users.shadeyg56 = import ./home/home.nix;
+            }
+            sddm-sugar-candy-nix.nixosModules.default
+            catppuccin.nixosModules.catppuccin
+          ];
+        };
+
+
       };
       formatter.${system} = pkgs.nixfmt-rfc-style;
     };
