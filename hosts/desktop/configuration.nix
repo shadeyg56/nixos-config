@@ -79,7 +79,7 @@
     dates = "weekly";
   };
 
-  networking.hostName = "nixos";
+  networking.hostName = "desktop";
   networking.networkmanager.enable = true;
   networking.nameservers = [ "1.1.1.1" ];
 
