@@ -49,7 +49,7 @@
     slurp
     pamixer
     libreoffice-fresh
-    okular
+    kdePackages.okular
     virt-manager
     filezilla
     prismlauncher
