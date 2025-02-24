@@ -37,7 +37,7 @@
     wofi
     spicetify-cli
     swaylock-effects
-    dolphin
+    kdePackages.dolphin
     brightnessctl
     libsForQt5.polkit-kde-agent
     bluez
