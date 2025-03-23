@@ -23,7 +23,7 @@ stdenv.mkDerivation rec {
   ];
 
   propagatedBuildInputs = [
-    (pkgs.python310.withPackages (
+    (pkgs.python3.withPackages (
       p: with p; [
         pygobject3
         docopt
