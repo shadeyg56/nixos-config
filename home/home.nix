@@ -55,6 +55,7 @@
     prismlauncher
     moonlight-qt
     steam
+    heroic
     stremio
     ungoogled-chromium
     icon-library
