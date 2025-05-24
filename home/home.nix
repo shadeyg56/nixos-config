@@ -59,7 +59,8 @@
     stremio
     ungoogled-chromium
     icon-library
-    ventoy-full
+    # Removing ventoy for time being in light of https://github.com/ventoy/Ventoy/issues/3224
+    #ventoy-full
     imagemagick
     obsidian
     (callPackage ../pkgs/adios.nix { })
