@@ -64,6 +64,7 @@
 
   boot.loader.grub = {
     enable = true;
+    default = "saved";
     efiSupport = true;
     useOSProber = true;
     configurationLimit = 10;
