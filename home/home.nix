@@ -63,6 +63,7 @@
     #ventoy-full
     imagemagick
     obsidian
+    proton-pass
     (callPackage ../pkgs/adios.nix { })
     (callPackage ../pkgs/marie-sim.nix { })
 
