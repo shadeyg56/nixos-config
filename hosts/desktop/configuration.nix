@@ -149,7 +149,7 @@
   };
 
   hardware.bluetooth = {
-    enable = false; # currently don't have bluetooth adapter on desktop
+    enable = true;
     powerOnBoot = false;
   };
 
