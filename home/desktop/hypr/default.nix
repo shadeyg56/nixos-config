@@ -12,7 +12,7 @@
   };
 
   #set up polkit
-  home.file."polkit-kde-authentication-agent-1".source = "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1";
+  home.file."polkit-kde-authentication-agent-1".source = "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1";
 
   wayland.windowManager.hyprland.enable = true;
 }

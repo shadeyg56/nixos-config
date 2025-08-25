@@ -39,7 +39,7 @@
     swaylock-effects
     kdePackages.dolphin
     brightnessctl
-    libsForQt5.polkit-kde-agent
+    kdePackages.polkit-kde-agent-1
     bluez
     blueman
     pavucontrol
@@ -85,7 +85,7 @@
     #(callPackage ./pkgs/spotify-adblock.nix { })
 
     # themes
-    lightly-qt
+    darkly
     libsForQt5.qt5ct
     catppuccin-gtk
   ];

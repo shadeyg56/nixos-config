@@ -4,12 +4,13 @@
 
   gtk = {
     enable = true;
-    catppuccin= {
-      enable = true;
-      flavor = "macchiato";
-      accent = "lavender";
-      size = "standard";
-      tweaks = [ "normal" ];
+    theme = {
+      name = "catppuccin-macchiato-lavender-standard";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "lavender" ];
+        size = "standard";
+        variant = "macchiato";
+      };
     };
     iconTheme = {
       name = "Papirus-Dark";
@@ -20,6 +21,8 @@
       size = 10;
     };
   };
+
+  home.sessionVariables.GTK_THEME = "catppuccin-macchiato-lavender-standard";
 
   catppuccin.pointerCursor = {
     enable = true;
