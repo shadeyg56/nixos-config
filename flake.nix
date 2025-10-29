@@ -34,7 +34,7 @@
 
     saturn = {
       url = "github:shadeyg56/saturn";
-      inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.nixpkgs.follows = "nixpkgs";
     };
 
     catppuccin.url = "github:catppuccin/nix";

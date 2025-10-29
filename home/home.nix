@@ -56,7 +56,6 @@
     moonlight-qt
     steam
     heroic
-    stremio
     ungoogled-chromium
     icon-library
     # Removing ventoy for time being in light of https://github.com/ventoy/Ventoy/issues/3224
@@ -64,6 +63,7 @@
     imagemagick
     obsidian
     proton-pass
+    (callPackage ../pkgs/stremio.nix { })
     (callPackage ../pkgs/adios.nix { })
     (callPackage ../pkgs/marie-sim.nix { })
 

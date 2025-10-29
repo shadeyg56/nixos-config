@@ -15,7 +15,7 @@ stdenv.mkDerivation rec {
     sha256 = "19cs0w85lylf8idg9dqnpp3r07caf06a3klq1hv9zbqar3kw543x";
   };
 
-  nativeBuildInputs = with pkgs; [ wrapGAppsHook ];
+  nativeBuildInputs = with pkgs; [ wrapGAppsHook3 ];
 
   buildInputs = with pkgs; [
     gtk3
