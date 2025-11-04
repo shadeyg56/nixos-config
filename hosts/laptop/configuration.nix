@@ -5,7 +5,11 @@
   lib,
   ...
 }:
-{
+let 
+  custom_sddm_astronaut = pkgs.sddm-astronaut.override {
+    embeddedTheme = "hyprland_kath";
+  };
+in{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -40,6 +44,7 @@
     virtiofsd
     cachix
     nh
+    custom_sddm_astronaut
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -101,17 +106,14 @@
   services.displayManager = {
     sddm = {
       enable = true;
-      wayland.enable = true;
-      sugarCandyNix = {
-        enable = true;
-        settings = {
-          Background = lib.cleanSource ../../home/desktop/wallpapers/nixos-catppuccin.png;
-          ScreenWidth = 1920;
-          ScreenHeight = 1080;
-          FormPosition = "left";
-          #Catppuccin Macchiato Lavender
-          AccentColor = "#b7bdf8";
-          Font = "JetBrainsMono Nerd Font";
+      package = pkgs.kdePackages.sddm;
+      extraPackages = with pkgs; [
+        custom_sddm_astronaut
+      ];
+      theme = "sddm-astronaut-theme";
+      settings = {
+        Theme = {
+          Current = "sddm-astronaut-theme";
         };
       };
     };
