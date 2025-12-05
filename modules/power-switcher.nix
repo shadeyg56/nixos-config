@@ -6,7 +6,7 @@
 }:
 # run certain commands depending whether the system is on AC or on battery
 let
-  programs = lib.makeBinPath [ inputs.hyprland.packages.${pkgs.system}.default ];
+  programs = lib.makeBinPath [ inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.default ];
 
   unplugged = pkgs.writeShellScript "unplugged" ''
     export PATH=$PATH:${programs}

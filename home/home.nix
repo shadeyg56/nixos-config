@@ -17,7 +17,7 @@
     fastfetch
     kitty
     zsh
-    inputs.nixpkgs-pinned.legacyPackages.${pkgs.system}.cava
+    inputs.nixpkgs-pinned.legacyPackages.${pkgs.stdenv.hostPlatform.system}.cava
     btop
     htop
     dialog
@@ -63,12 +63,13 @@
     imagemagick
     obsidian
     proton-pass
-    (callPackage ../pkgs/stremio.nix { })
+    inputs.nixohess.packages.${pkgs.stdenv.hostPlatform.system}.stremio-linux-shell
+
     (callPackage ../pkgs/adios.nix { })
     (callPackage ../pkgs/marie-sim.nix { })
 
     # system
-    inputs.saturn.packages.${pkgs.system}.default
+    inputs.saturn.packages.${pkgs.stdenv.hostPlatform.system}.default
     udev
     podman
     distrobox
