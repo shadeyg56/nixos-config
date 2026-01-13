@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }:
 {
-  imports = [ inputs.catppuccin.homeManagerModules.catppuccin ];
+  imports = [ inputs.catppuccin.homeModules.catppuccin ];
 
   gtk = {
     enable = true;
@@ -24,7 +24,7 @@
 
   home.sessionVariables.GTK_THEME = "catppuccin-macchiato-lavender-standard";
 
-  catppuccin.pointerCursor = {
+  catppuccin.cursors = {
     enable = true;
     flavor = "macchiato";
     accent = "lavender";
