@@ -63,7 +63,7 @@
     imagemagick
     obsidian
     proton-pass
-    inputs.azzipkgs.packages.${pkgs.stdenv.hostPlatform.system}.stremio-linux-shell
+    inputs.azzipkgs.packages.${pkgs.stdenv.hostPlatform.system}.stremio-linux-shell-git
 
     (callPackage ../pkgs/adios.nix { })
     (callPackage ../pkgs/marie-sim.nix { })
