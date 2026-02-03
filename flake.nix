@@ -39,8 +39,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixohess = {
-      url = "gitlab:fazzi/nixohess";
+    azzipkgs = {
+      url = "gitlab:fazzi/azzipkgs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
