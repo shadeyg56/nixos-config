@@ -3,7 +3,7 @@
   fetchFromGitHub,
   fetchurl,
   pkgs,
-  python310Packages,
+  pythonPackages,
 }:
 
 stdenv.mkDerivation rec {
