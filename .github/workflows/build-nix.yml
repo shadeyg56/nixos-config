@@ -18,24 +18,15 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: "Maximize Disk Space"
-        uses: easimon/maximize-build-space@v8
-        with:
-          root-reserve-mb: 20480
-          swap-size-mb: 1024
-          build-mount-path: /nix
-          remove-dotnet: "true"
-          remove-android: "true"
-          remove-haskell: "true"
-          remove-codeql: "true"
-          remove-docker-images: "true"
+        uses: wimpysworld/nothing-but-nix@v10
       
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6.0.2
       
       - name: "Install Nix ❄️"
         uses: cachix/install-nix-action@v31.9.0
 
       - name: "Install Cachix ❄️"
-        uses: cachix/cachix-action@v14
+        uses: cachix/cachix-action@v17
         with:
           name: shades-nixos-config
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
