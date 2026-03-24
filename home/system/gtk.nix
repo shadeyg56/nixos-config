@@ -20,6 +20,9 @@
       name = "Noto Sans";
       size = 10;
     };
+    gtk4 = {
+      theme = null;
+    };
   };
 
   home.sessionVariables.GTK_THEME = "catppuccin-macchiato-lavender-standard";

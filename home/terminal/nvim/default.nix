@@ -101,7 +101,7 @@
         vim-nix
       ];
 
-      extraLuaConfig = ''
+      initLua = ''
         ${builtins.readFile ./options.lua}
         ${builtins.readFile ./plugin/other.lua}
       '';

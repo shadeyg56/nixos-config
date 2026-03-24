@@ -5,7 +5,7 @@
 
   textfox = {
     enable = true;
-    profile = "lri9qfjr.default";
+    profiles = [ "lri9qfjr.default" ];
     config = {
       displayNavButtons = true;
       displayUrlbarIcons = true;

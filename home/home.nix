@@ -78,7 +78,7 @@
     gcc
     python312
     winetricks
-    wineWowPackages.waylandFull
+    wineWow64Packages.waylandFull
     jdk17
     nixd
     hypridle
