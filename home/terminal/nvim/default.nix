@@ -52,7 +52,7 @@
         }
 
         neodev-nvim
-	plenary-nvim
+        plenary-nvim
 
         nvim-cmp
         {

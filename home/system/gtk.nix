@@ -32,5 +32,5 @@
     flavor = "macchiato";
     accent = "lavender";
   };
-  
+
 }

@@ -47,12 +47,10 @@ let
   };
 in
 spotify.overrideAttrs (old: {
-  postInstall =
-    (old.postInstall or "")
-    + ''
-      ln -s ${spotify-adblock}/lib/libspotifyadblock.so $libdir
-      sed -i "s:^Name=Spotify.*:Name=Spotify-adblock:" "$out/share/spotify/spotify.desktop"
-      wrapProgram $out/bin/spotify \
-        --set LD_PRELOAD "${spotify-adblock}/lib/libspotifyadblock.so"
-    '';
+  postInstall = (old.postInstall or "") + ''
+    ln -s ${spotify-adblock}/lib/libspotifyadblock.so $libdir
+    sed -i "s:^Name=Spotify.*:Name=Spotify-adblock:" "$out/share/spotify/spotify.desktop"
+    wrapProgram $out/bin/spotify \
+      --set LD_PRELOAD "${spotify-adblock}/lib/libspotifyadblock.so"
+  '';
 })

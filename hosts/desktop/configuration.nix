@@ -5,7 +5,7 @@
   lib,
   ...
 }:
-let 
+let
   custom_sddm_astronaut = pkgs.sddm-astronaut.override {
     embeddedTheme = "hyprland_kath";
   };
@@ -74,7 +74,7 @@ in
     efiSupport = true;
     useOSProber = true;
     configurationLimit = 10;
-    devices = [ "nodev"] ; # efi only
+    devices = [ "nodev" ]; # efi only
     theme = (pkgs.callPackage ../../pkgs/catppuccin-grub.nix { });
   };
 

@@ -5,11 +5,12 @@
   lib,
   ...
 }:
-let 
+let
   custom_sddm_astronaut = pkgs.sddm-astronaut.override {
     embeddedTheme = "hyprland_kath";
   };
-in{
+in
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix

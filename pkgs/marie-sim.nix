@@ -1,4 +1,10 @@
-{ stdenv, fetchFromGitHub, makeWrapper, makeDesktopItem,  jdk }: 
+{
+  stdenv,
+  fetchFromGitHub,
+  makeWrapper,
+  makeDesktopItem,
+  jdk,
+}:
 
 stdenv.mkDerivation rec {
   pname = "MarieSim";
@@ -10,9 +16,9 @@ stdenv.mkDerivation rec {
     owner = "chippography";
     repo = "MARIESimulator";
     rev = "fde35ee1753f3aeb02b4fc69181e2c39c61aebdf";
-    hash =  "sha256-vdtcyy1aVyMo6EfBlItaB3Lxuu0r7SeeuV4yTwHpjNk=";
+    hash = "sha256-vdtcyy1aVyMo6EfBlItaB3Lxuu0r7SeeuV4yTwHpjNk=";
   };
-  
+
   desktopItem = makeDesktopItem {
     name = "MarieSim";
     exec = "MarieSim";
