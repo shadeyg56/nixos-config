@@ -36,7 +36,7 @@
     (discord.override { withVencord = true; })
     wofi
     spicetify-cli
-    swaylock-effects
+    hyprlock
     kdePackages.dolphin
     brightnessctl
     kdePackages.polkit-kde-agent-1
