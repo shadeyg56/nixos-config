@@ -104,11 +104,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1781021268,
-        "narHash": "sha256-hjsdzklrdBusBRj3bH7KzVvQDQa2Cn+3sacFH4JonAQ=",
+        "lastModified": 1781068489,
+        "narHash": "sha256-MT7ZJj1x2aXS+07gtgPYernhadTQF5wLIvUaScX+nuw=",
         "owner": "fazzi",
         "repo": "azzipkgs",
-        "rev": "f71495bdbd37c91291643942d2fa490dc63b27ef",
+        "rev": "f7f64f58363c97ebeed6665ec3548226f93634f5",
         "type": "gitlab"
       },
       "original": {
@@ -180,11 +180,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1781064232,
-        "narHash": "sha256-+7cIaqM6ucKf5fDyMnkwehxG8tBdaU51TZOMtxacXmI=",
+        "lastModified": 1781129616,
+        "narHash": "sha256-Hl0Pz/QIKpePSU7SdK3BMe5VNmUhFvfWyg57GyawxzE=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "1ffdc28076a1809ee7c0cf08f06af18f31c480cd",
+        "rev": "7dbd305f8b81050f223f00bcfbc8a6b74e048806",
         "type": "github"
       },
       "original": {
@@ -271,11 +271,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1781028094,
-        "narHash": "sha256-f7SynCpJBgE2O5TJZch3wfCAH10ubk12/MwBDI9M/r4=",
+        "lastModified": 1781118082,
+        "narHash": "sha256-CQD0WPm9rwtyuusUogKx+WmxUeOT59oyYxchsJ5uMDw=",
         "ref": "refs/heads/main",
-        "rev": "b6633c4120a3f9607d6af719ceb6b0cbaa4605f9",
-        "revCount": 7441,
+        "rev": "68e3e40491d3f87a388ddb11ea1966ed7c3e9612",
+        "revCount": 7447,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -548,11 +548,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1781026263,
-        "narHash": "sha256-+ibRAkn6y757K6HeQHWP+bspOPsVTgsWVXZNb7Mryh8=",
+        "lastModified": 1781117444,
+        "narHash": "sha256-jzhqUdwjqkFVAHClmjoK1ROmFLJzs8rSHm8Y+OZqBSM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f117b4b2ccc1a70c1baff725cbc7064e24c17eda",
+        "rev": "f9fbf8d5b7ea867085c92fdbe0581bd77f8081cf",
         "type": "github"
       },
       "original": {
@@ -642,11 +642,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1780857688,
-        "narHash": "sha256-e4E6M6erJIus5Cm/A4faaaTuUfof1uvcviAPSh7tmLU=",
+        "lastModified": 1781101834,
+        "narHash": "sha256-gNVY6SYglFe37FpD+NnOjTipsqvVMM2vh/uc22KDEsA=",
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "aad629e8261f219b0a5b3a2189b09d65216a0983",
+        "rev": "0243dd6707c969fc8440216c811b3f2e4a4cceb7",
         "type": "github"
       },
       "original": {
