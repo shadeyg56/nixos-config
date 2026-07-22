@@ -97,26 +97,6 @@
         "type": "github"
       }
     },
-    "azzipkgs": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1784587366,
-        "narHash": "sha256-cUyWM3aFuhBqP2cIIsXNSJNqq04Y+ndELZHlnUl5Jb4=",
-        "owner": "fazzi",
-        "repo": "azzipkgs",
-        "rev": "c261a65c2a3307a4207254d1156e45b32fb1f04c",
-        "type": "gitlab"
-      },
-      "original": {
-        "owner": "fazzi",
-        "repo": "azzipkgs",
-        "type": "gitlab"
-      }
-    },
     "catppuccin": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -581,7 +561,6 @@
     "root": {
       "inputs": {
         "auto-cpufreq": "auto-cpufreq",
-        "azzipkgs": "azzipkgs",
         "catppuccin": "catppuccin",
         "home-manager": "home-manager",
         "hyprland": "hyprland",

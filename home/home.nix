@@ -63,7 +63,7 @@
     imagemagick
     obsidian
     proton-pass
-    (callPackage ../pkgs/stremio.nix { })
+    stremio-linux-shell
 
     (callPackage ../pkgs/adios.nix { })
     (callPackage ../pkgs/marie-sim.nix { })
