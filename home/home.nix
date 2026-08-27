@@ -28,6 +28,8 @@
     wl-clipboard
     hugo
     gh
+    jujutsu
+    meld
 
     # programs
     vscode-fhs

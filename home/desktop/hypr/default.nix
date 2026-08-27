@@ -14,7 +14,7 @@
   # disable linking hyprland.conf since we include it as
   # extraConfig below. This prevents a warning from
   # being thrown by the module
-  home.file.".config/hypr/hyprland.conf".enable = false;
+  home.file.".config/hypr/hyprland.lua".enable = false;
 
   #set up polkit
   home.file."polkit-kde-authentication-agent-1".source =
@@ -22,7 +22,6 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    extraConfig = "${builtins.readFile ./hyprland.conf}";
-
+    extraConfig = "${builtins.readFile ./hyprland.lua}";
   };
 }
