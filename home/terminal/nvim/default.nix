@@ -9,16 +9,8 @@
 
   programs.neovim =
     let
-      toLua = str: ''
-        lua << EOF
-        ${str}
-        EOF
-      '';
-      toLuaFile = file: ''
-        lua << EOF
-        ${builtins.readFile file}
-        EOF
-      '';
+      toLua = str: str;
+      toLuaFile = file: builtins.readFile file;
     in
     {
       enable = true;
@@ -26,6 +18,8 @@
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
+      withRuby = false;
+      withPython3 = false;
 
       extraPackages = with pkgs; [
         luajitPackages.lua-lsp
@@ -38,17 +32,20 @@
 
         {
           plugin = nvim-lspconfig;
+          type = "lua";
           config = toLuaFile ./plugin/lsp.lua;
         }
 
         {
           plugin = comment-nvim;
+          type = "lua";
           config = toLua ''require("Comment").setup()'';
         }
 
         {
           plugin = catppuccin-nvim;
-          config = "colorscheme catppuccin-macchiato";
+          type = "lua";
+          config = ''vim.cmd.colorscheme("catppuccin-macchiato")'';
         }
 
         neodev-nvim
@@ -57,16 +54,19 @@
         nvim-cmp
         {
           plugin = nvim-cmp;
+          type = "lua";
           config = toLuaFile ./plugin/cmp.lua;
         }
 
         {
           plugin = telescope-nvim;
+          type = "lua";
           config = toLuaFile ./plugin/telescope.lua;
         }
 
         {
           plugin = nvim-tree-lua;
+          type = "lua";
           config = toLuaFile ./plugin/nvim-tree.lua;
         }
 
@@ -95,6 +95,7 @@
               p.tree-sitter-json
             ])
           );
+          type = "lua";
           config = toLuaFile ./plugin/treesitter.lua;
         }
 

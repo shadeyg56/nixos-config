@@ -35,6 +35,11 @@ in
   # allow proprietary packages
   nixpkgs.config.allowUnfree = true;
 
+  catppuccin = {
+    enable = true;
+    autoEnable = false;
+  };
+
   environment.systemPackages = with pkgs; [
     git
     vim
