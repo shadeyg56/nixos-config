@@ -50,7 +50,7 @@
     grim
     slurp
     pamixer
-    libreoffice-fresh
+    libreoffice-stable
     kdePackages.okular
     virt-manager
     filezilla

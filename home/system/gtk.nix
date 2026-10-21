@@ -27,10 +27,17 @@
 
   home.sessionVariables.GTK_THEME = "catppuccin-macchiato-lavender-standard";
 
+  catppuccin = {
+    enable = true;
+    autoEnable = false;
+  };
+
   catppuccin.cursors = {
     enable = true;
     flavor = "macchiato";
     accent = "lavender";
   };
+
+  home.pointerCursor.enable = true;
 
 }
