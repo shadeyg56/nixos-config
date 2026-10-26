@@ -84,11 +84,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792609737,
-        "narHash": "sha256-vfmqH26p9JjqXdtFJ2j0fbiu3X4SISezi/s6X6ak1u0=",
+        "lastModified": 1792921892,
+        "narHash": "sha256-O5kxwpGBMu49ewoqVVH/hOIFjzb0PgyBjxvgF5DEXaA=",
         "owner": "AdnanHodzic",
         "repo": "auto-cpufreq",
-        "rev": "5a1683037a583785f802b5d039022127b9b154cd",
+        "rev": "8944240f70d1b9264432c09ee475a5dcc393adec",
         "type": "github"
       },
       "original": {
@@ -230,11 +230,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1792868113,
-        "narHash": "sha256-tPQ3rRbS8DgH71XFyhcRS0aeyblhYtWYAkgCwkWsCFs=",
+        "lastModified": 1792919706,
+        "narHash": "sha256-9Sxo9TLheb4gLRVWL9qSv+aCy14CBg4boqSX5BrTs7s=",
         "ref": "refs/heads/main",
-        "rev": "390f8f8297911620d5dcb226520ba0cf21e43479",
-        "revCount": 7959,
+        "rev": "c4e7596a3db89cb0d213eeb3e436599422995b43",
+        "revCount": 7961,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -503,11 +503,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1792867761,
-        "narHash": "sha256-e6+Bjsb4o1yfqPwZ21komWfYF6F7x8eFBGbuuKtX41U=",
+        "lastModified": 1792925778,
+        "narHash": "sha256-aCg6fAHZszDX68IsLPUm/NQ7ZVXMHk74bjHAIr8K5dM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "95217612160f0b493513cde1d2402af54861d07c",
+        "rev": "acc2ec71996e90e6e011fa14979b13cdc070ec79",
         "type": "github"
       },
       "original": {
@@ -595,11 +595,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1792312987,
-        "narHash": "sha256-W76wP2Kr/a/E2IMK3wtBD5WaTJJnB21C25pWUbD5IC8=",
+        "lastModified": 1792919014,
+        "narHash": "sha256-gJ8uPmQFhJ98X+VWPpD+o0tnQ0nJjbG+Z3QDHcSJKw0=",
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "fc58c85761e0893299092f482150305b1ef60914",
+        "rev": "f6eb8135c060130150c8fbcc6b7cf5e22e5179d8",
         "type": "github"
       },
       "original": {
